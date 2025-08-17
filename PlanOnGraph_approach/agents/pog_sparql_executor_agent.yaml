@@ -1,0 +1,22 @@
+spec_version: v1
+kind: native
+name: pog_sparql_executor
+display_name: PoG SPARQL Executor
+description: |
+  Execute the SPARQL query on the Fuseki endpoint and return the raw results or an error.
+instructions: |
+  Input JSON:
+    {"endpoint_url": "<str>", "query": "<SPARQL>"}
+
+  Step:
+    - Call tool `run_sparql_query` with the same payload.
+      The tool returns either {"results": {...}} or {"error": "..."}.
+
+  Output:
+    - Return exactly what the tool returns. Do not wrap or add fields.
+
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - run_sparql_query

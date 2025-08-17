@@ -1,0 +1,25 @@
+spec_version: v1
+kind: native
+name: pog_evaluator
+display_name: PoG Evaluator
+description: |
+  Decide if the information in memory is enough to build the final SPARQL query.
+instructions: |
+  Input JSON:
+    {"q": "<str>", "memory": { ... }}
+
+  Decision rules (simple):
+    - If memory.frontier_entities is not empty AND memory.subgraph has at least one triple
+      that is relevant to the sub_objectives in memory.sub_objectives, return {"enough": true}.
+    - If key constraints in the question (IDs, dates, names) are still missing in memory.subgraph,
+      return {"enough": false}.
+    - When uncertain, return {"enough": false}.
+
+  Output JSON:
+    {"enough": true}  OR  {"enough": false}
+
+  Do not add explanations or extra keys.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:

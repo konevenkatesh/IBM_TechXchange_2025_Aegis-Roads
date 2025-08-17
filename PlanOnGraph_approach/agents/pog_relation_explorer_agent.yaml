@@ -1,0 +1,27 @@
+spec_version: v1
+kind: native
+name: pog_relation_explorer
+display_name: PoG Relation Explorer
+description: |
+  From current frontier entities, list adjacent relations and select the few relevant relations for the question.
+instructions: |
+  Input JSON:
+    {"endpoint_url": "<str>", "q": "<str>", "schema": { ... }, "memory": { ... }}
+
+  Steps:
+    1) For each entity in memory.frontier_entities:
+         call tool `get_relations` with
+           {"endpoint_url": endpoint_url, "entity_iri": "<IRI>"}
+       The tool returns {"relations":[{"iri":"...","count":N}, ...]}.
+    2) Merge all returned relations, deduplicate by IRI, and sum their counts.
+    3) Using the question `q` and memory.sub_objectives, choose the MINIMUM set
+       of relevant relations (up to 5). Prefer higher counts and direct relevance.
+    4) Output exactly:
+         {"selected_relations": ["iri1","iri2", ...]}
+
+  Do not add explanations.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - get_relations

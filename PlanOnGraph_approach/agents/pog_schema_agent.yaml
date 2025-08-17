@@ -1,0 +1,15 @@
+spec_version: v1
+kind: native
+name: pog_schema_agent
+display_name: PoG Schema Agent
+description: |
+  Get a compact ontology schema (classes, properties, domain, range, labels) from the Fuseki endpoint.
+instructions: |
+  Call tool `get_schema` with:
+    {"endpoint_url": endpoint_url}
+  Return its JSON output without changes.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - get_schema

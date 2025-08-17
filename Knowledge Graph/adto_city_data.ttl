@@ -1,0 +1,2196 @@
+@prefix adto: <http://www.projectsynapse.com/ontologies/adto#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix ns1: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+adto: a owl:Ontology ;
+    rdfs:comment "ADTO-City: a city infrastructure & works ontology, LLM-friendly and aligned with GeoSPARQL, QUDT, PROV-O, SOSA/SSN, OWL-Time, SKOS, and BOT." .
+
+adto:AI_Agent a owl:Class ;
+    rdfs:label "AI Agent" ;
+    rdfs:comment "Automated (LLM) agent." ;
+    rdfs:subClassOf adto:Agent ;
+    ns1:altLabel "LLM Agent" .
+
+adto:AgriculturalLand a owl:Class ;
+    rdfs:label "Agricultural Land" ;
+    rdfs:comment "Agricultural land." ;
+    rdfs:subClassOf adto:LandParcel .
+
+adto:AgriculturalZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Agricultural Zone" .
+
+adto:AirportInfrastructure a owl:Class ;
+    rdfs:label "Airport Infrastructure" ;
+    rdfs:comment "Airport runways, terminals, aprons." ;
+    rdfs:subClassOf adto:TransportInfrastructure .
+
+adto:Bridge a owl:Class ;
+    rdfs:label "Bridge" ;
+    rdfs:comment "Bridge structure across waterway/road/rail." ;
+    rdfs:subClassOf adto:TransportInfrastructure .
+
+adto:Bus a owl:Class ;
+    rdfs:label "Bus" ;
+    rdfs:comment "Public transport bus." ;
+    rdfs:subClassOf adto:Vehicle .
+
+adto:BusStop a owl:Class ;
+    rdfs:label "Bus Stop" ;
+    rdfs:comment "Bus stop/stand location." ;
+    rdfs:subClassOf adto:PublicTransportNode .
+
+adto:Cemetery a owl:Class ;
+    rdfs:label "Cemetery" ;
+    rdfs:comment "Cemetery / burial ground." ;
+    rdfs:subClassOf adto:OtherInfrastructure .
+
+adto:CommercialBuilding a owl:Class ;
+    rdfs:label "Commercial Building" ;
+    rdfs:comment "Commercial or mixed-use building." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:CommercialPlot a owl:Class ;
+    rdfs:label "Commercial Plot" ;
+    rdfs:comment "Commercial land parcel." ;
+    rdfs:subClassOf adto:LandParcel .
+
+adto:CommercialZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Commercial Zone" ;
+    adto:containsZone adto:CZ1_13,
+        adto:CZ2_14,
+        adto:CZ3_15,
+        adto:CZ5_16,
+        adto:CZ6_18,
+        adto:CZ7_17 .
+
+adto:ConservationZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Conservation Zone" .
+
+adto:Crane a owl:Class ;
+    rdfs:label "Crane" ;
+    rdfs:comment "Construction crane." ;
+    rdfs:subClassOf adto:Equipment .
+
+adto:CulturalFacility a owl:Class ;
+    rdfs:label "Cultural Facility" ;
+    rdfs:comment "Museum, theatre, auditorium, etc." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:Drone a owl:Class ;
+    rdfs:label "Drone" ;
+    rdfs:comment "Unmanned aerial vehicle for survey/inspection." ;
+    rdfs:subClassOf adto:MobileAsset .
+
+adto:E10_32 a adto:Road ;
+    rdfs:label "E 10" ;
+    adto:hasGeometry adto:E10_32_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E10_32_01,
+        adto:E10_32_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E11_33 a adto:Road ;
+    rdfs:label "E 11" ;
+    adto:hasGeometry adto:E11_33_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E11_33_01,
+        adto:E11_33_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E12_34 a adto:Road ;
+    rdfs:label "E 12" ;
+    adto:hasGeometry adto:E12_34_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E12_34_01,
+        adto:E12_34_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E13A_41 a adto:Road ;
+    rdfs:label "E 13A" ;
+    adto:hasGeometry adto:E13A_41_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E13A_41_01,
+        adto:E13A_41_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E13_35 a adto:Road ;
+    rdfs:label "E 13" ;
+    adto:hasGeometry adto:E13_35_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E13_35_01,
+        adto:E13_35_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E14A_39 a adto:Road ;
+    rdfs:label "E 14 A" ;
+    adto:hasGeometry adto:E14A_39_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E14A_39_01,
+        adto:E14A_39_02,
+        adto:E14A_39_03 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E15B_40 a adto:Road ;
+    rdfs:label "E 15B" ;
+    adto:hasGeometry adto:E15B_40_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E15B_40_01,
+        adto:E15B_40_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E15_36 a adto:Road ;
+    rdfs:label "E 15" ;
+    adto:hasGeometry adto:E15_36_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E15_36_01,
+        adto:E15_36_02,
+        adto:E15_36_03 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E16_37 a adto:Road ;
+    rdfs:label "E 16" ;
+    adto:hasGeometry adto:E16_37_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E16_37_01,
+        adto:E16_37_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E17_38 a adto:Road ;
+    rdfs:label "E 17" ;
+    adto:hasGeometry adto:E17_38_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E17_38_01,
+        adto:E17_38_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E1_24 a adto:Road ;
+    rdfs:label "E 1" ;
+    adto:hasGeometry adto:E1_24_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E1_24_01,
+        adto:E1_24_02,
+        adto:E1_24_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E2_25 a adto:Road ;
+    rdfs:label "E 2" ;
+    adto:hasGeometry adto:E2_25_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E2_25_01,
+        adto:E2_25_02,
+        adto:E2_25_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E3_26 a adto:Road ;
+    rdfs:label "E 3" ;
+    adto:hasGeometry adto:E3_26_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E3_26_01,
+        adto:E3_26_02,
+        adto:E3_26_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E5_27 a adto:Road ;
+    rdfs:label "E 5" ;
+    adto:hasGeometry adto:E5_27_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E5_27_01,
+        adto:E5_27_02,
+        adto:E5_27_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E6_28 a adto:Road ;
+    rdfs:label "E 6" ;
+    adto:hasGeometry adto:E6_28_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E6_28_01,
+        adto:E6_28_02,
+        adto:E6_28_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E7_29 a adto:Road ;
+    rdfs:label "E 7" ;
+    adto:hasGeometry adto:E7_29_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E7_29_01,
+        adto:E7_29_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E8_30 a adto:Road ;
+    rdfs:label "E 8" ;
+    adto:hasGeometry adto:E8_30_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:E8_30_01,
+        adto:E8_30_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:E9_31 a adto:Road ;
+    rdfs:label "E 9" ;
+    adto:hasGeometry adto:E9_31_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:E9_31_01,
+        adto:E9_31_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:EducationalZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Educational Zone" ;
+    adto:containsZone adto:EDUZ1_23,
+        adto:EDZ2_24 .
+
+adto:EmergencyVehicle a owl:Class ;
+    rdfs:label "Emergency Vehicle" ;
+    rdfs:comment "Ambulance, fire truck, police vehicle." ;
+    rdfs:subClassOf adto:Vehicle .
+
+adto:Excavator a owl:Class ;
+    rdfs:label "Excavator" ;
+    rdfs:comment "Excavator machine." ;
+    rdfs:subClassOf adto:Equipment .
+
+adto:GasPipeline a owl:Class ;
+    rdfs:label "Gas Pipeline" ;
+    rdfs:comment "Natural gas pipeline." ;
+    rdfs:subClassOf adto:UtilityInfrastructure .
+
+adto:GovernmentBuilding a owl:Class ;
+    rdfs:label "Government Building" ;
+    rdfs:comment "Administrative/government facility." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:GovernmentZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Government Zone" ;
+    adto:containsZone adto:GovZ1_25,
+        adto:GovZ2_26,
+        adto:GovZ3_27,
+        adto:GovZ4_28 .
+
+adto:GreenBelt a owl:Class ;
+    rdfs:label "Green Belt" ;
+    rdfs:comment "Green belt or buffer." ;
+    rdfs:subClassOf adto:GreenInfrastructure .
+
+adto:GreenZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Green Zone" ;
+    adto:containsZone adto:GZ1_19,
+        adto:GZ2_20,
+        adto:GZ3_21 .
+
+adto:Hospital a owl:Class ;
+    rdfs:label "Hospital" ;
+    rdfs:comment "Medical facility." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:IndustrialPlot a owl:Class ;
+    rdfs:label "Industrial Plot" ;
+    rdfs:comment "Industrial land parcel." ;
+    rdfs:subClassOf adto:LandParcel .
+
+adto:IndustrialZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Industrial Zone" ;
+    adto:containsZone adto:IZ1_22 .
+
+adto:InstitutionalPlot a owl:Class ;
+    rdfs:label "Institutional Plot" ;
+    rdfs:comment "Institutional land parcel." ;
+    rdfs:subClassOf adto:LandParcel .
+
+adto:Main1_1 a adto:WaterMain ;
+    rdfs:label "Main 1" ;
+    adto:hasDiameter 1.5e+03 ;
+    adto:hasGeometry adto:Main1_1_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main22_8 a adto:WaterMain ;
+    rdfs:label "Main 22" ;
+    adto:hasDiameter 2e+03 ;
+    adto:hasGeometry adto:Main22_8_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main2_2 a adto:WaterMain ;
+    rdfs:label "Main 2" ;
+    adto:hasDiameter 1.5e+03 ;
+    adto:hasGeometry adto:Main2_2_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main3_3 a adto:WaterMain ;
+    rdfs:label "Main 3" ;
+    adto:hasDiameter 1.5e+03 ;
+    adto:hasGeometry adto:Main3_3_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main4_4 a adto:WaterMain ;
+    rdfs:label "Main 4" ;
+    adto:hasDiameter 1.5e+03 ;
+    adto:hasGeometry adto:Main4_4_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main5_5 a adto:WaterMain ;
+    rdfs:label "Main 5" ;
+    adto:hasDiameter 2e+03 ;
+    adto:hasGeometry adto:Main5_5_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main5_6 a adto:WaterMain ;
+    rdfs:label "Main 5" ;
+    adto:hasDiameter 2e+03 ;
+    adto:hasGeometry adto:Main5_6_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:Main8_7 a adto:WaterMain ;
+    rdfs:label "Main 8" ;
+    adto:hasDiameter 2e+03 ;
+    adto:hasGeometry adto:Main8_7_geom ;
+    adto:isLocatedIn adto:PublicUtilitiesServicesZone .
+
+adto:MaintenanceVehicle a owl:Class ;
+    rdfs:label "Maintenance Vehicle" ;
+    rdfs:comment "Road/utility service vehicle." ;
+    rdfs:subClassOf adto:Vehicle .
+
+adto:MetroStation a owl:Class ;
+    rdfs:label "Metro Station" ;
+    rdfs:comment "Mass rapid transit station." ;
+    rdfs:subClassOf adto:PublicTransportNode .
+
+adto:N10_9 a adto:Road ;
+    rdfs:label "N 10" ;
+    adto:hasGeometry adto:N10_9_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N10_9_01,
+        adto:N10_9_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N11_8 a adto:Road ;
+    rdfs:label "N 11" ;
+    adto:hasGeometry adto:N11_8_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N11_8_01,
+        adto:N11_8_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N12_7 a adto:Road ;
+    rdfs:label "N 12" ;
+    adto:hasGeometry adto:N12_7_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N12_7_01,
+        adto:N12_7_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N13_6 a adto:Road ;
+    rdfs:label "N 13" ;
+    adto:hasGeometry adto:N13_6_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N13_6_01,
+        adto:N13_6_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N14_5 a adto:Road ;
+    rdfs:label "N 14" ;
+    adto:hasGeometry adto:N14_5_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N14_5_01,
+        adto:N14_5_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N15_4 a adto:Road ;
+    rdfs:label "N 15" ;
+    adto:hasGeometry adto:N15_4_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N15_4_01,
+        adto:N15_4_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N16_3 a adto:Road ;
+    rdfs:label "N 16" ;
+    adto:hasGeometry adto:N16_3_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N16_3_01,
+        adto:N16_3_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N17_2 a adto:Road ;
+    rdfs:label "N 17" ;
+    adto:hasGeometry adto:N17_2_geom ;
+    adto:hasRoadClass "Sub Arterial" ;
+    adto:hasRoadSegment adto:N17_2_01,
+        adto:N17_2_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N1_17 a adto:Road ;
+    rdfs:label "N 1" ;
+    adto:hasGeometry adto:N1_17_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N1_17_01,
+        adto:N1_17_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N2_16 a adto:Road ;
+    rdfs:label "N 2" ;
+    adto:hasGeometry adto:N2_16_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N2_16_01,
+        adto:N2_16_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N3A_18 a adto:Road ;
+    rdfs:label "N 3A" ;
+    adto:hasGeometry adto:N3A_18_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N3A_18_01,
+        adto:N3A_18_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N3B1_19 a adto:Road ;
+    rdfs:label "N 3B1" ;
+    adto:hasGeometry adto:N3B1_19_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N3B1_19_01,
+        adto:N3B1_19_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N3B2_20 a adto:Road ;
+    rdfs:label "N 3B2" ;
+    adto:hasGeometry adto:N3B2_20_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N3B2_20_01,
+        adto:N3B2_20_02,
+        adto:N3B2_20_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N3_15 a adto:Road ;
+    rdfs:label "N3" ;
+    adto:hasGeometry adto:N3_15_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N3_15_01,
+        adto:N3_15_02,
+        adto:N3_15_03 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N4A_21 a adto:Road ;
+    rdfs:label "N 4A" ;
+    adto:hasGeometry adto:N4A_21_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N4A_21_01,
+        adto:N4A_21_02,
+        adto:N4A_21_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N4B_22 a adto:Road ;
+    rdfs:label "N 4B" ;
+    adto:hasGeometry adto:N4B_22_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N4B_22_01,
+        adto:N4B_22_02,
+        adto:N4B_22_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N4_14 a adto:Road ;
+    rdfs:label "N 4" ;
+    adto:hasGeometry adto:N4_14_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N4_14_01,
+        adto:N4_14_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N6_13 a adto:Road ;
+    rdfs:label "N 6" ;
+    adto:hasGeometry adto:N6_13_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N6_13_01,
+        adto:N6_13_02,
+        adto:N6_13_03 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N7_12 a adto:Road ;
+    rdfs:label "N 7" ;
+    adto:hasGeometry adto:N7_12_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N7_12_01,
+        adto:N7_12_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N8_1 a adto:Road ;
+    rdfs:label "N 8" ;
+    adto:hasGeometry adto:N8_1_geom ;
+    adto:hasRoadClass "Sub Arterial" ;
+    adto:hasRoadSegment adto:N8_1_01,
+        adto:N8_1_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N8_11 a adto:Road ;
+    rdfs:label "N8" ;
+    adto:hasGeometry adto:N8_11_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:N8_11_01,
+        adto:N8_11_02 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:N9_10 a adto:Road ;
+    rdfs:label "N 9" ;
+    adto:hasGeometry adto:N9_10_geom ;
+    adto:hasRoadClass "Major Arterial Roads" ;
+    adto:hasRoadSegment adto:N9_10_01,
+        adto:N9_10_02 ;
+    adto:hasWidth 6e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:NH6_23 a adto:Road ;
+    rdfs:label "N H6" ;
+    adto:hasGeometry adto:NH6_23_geom ;
+    adto:hasRoadClass "Arterial Road" ;
+    adto:hasRoadSegment adto:NH6_23_01,
+        adto:NH6_23_02,
+        adto:NH6_23_03 ;
+    adto:hasWidth 5e+01 ;
+    adto:isLocatedIn adto:RoadReserveZone .
+
+adto:Park a owl:Class ;
+    rdfs:label "Park" ;
+    rdfs:comment "Urban park or garden." ;
+    rdfs:subClassOf adto:GreenInfrastructure .
+
+adto:Playground a owl:Class ;
+    rdfs:label "Playground" ;
+    rdfs:comment "Children's play area." ;
+    rdfs:subClassOf adto:GreenInfrastructure .
+
+adto:PowerSubstation a owl:Class ;
+    rdfs:label "Power Substation" ;
+    rdfs:comment "Electrical substation." ;
+    rdfs:subClassOf adto:UtilityInfrastructure .
+
+adto:ProtectedZone adto:containsZone adto:PTZ1_29,
+        adto:PTZ2_30 .
+
+adto:RailwayLine a owl:Class ;
+    rdfs:label "Railway Line" ;
+    rdfs:comment "Rail corridor asset." ;
+    rdfs:subClassOf adto:TransportInfrastructure .
+
+adto:RecreationZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Recreation Zone" .
+
+adto:ResidentialBlock a owl:Class ;
+    rdfs:label "Residential Block" ;
+    rdfs:comment "Residential apartment or housing block." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:ResidentialPlot a owl:Class ;
+    rdfs:label "Residential Plot" ;
+    rdfs:comment "Residential land parcel." ;
+    rdfs:subClassOf adto:LandParcel .
+
+adto:ResidentialZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Residential Zone" ;
+    adto:containsZone adto:RZ11_12,
+        adto:RZ1_1,
+        adto:RZ2_2,
+        adto:RZ3_3,
+        adto:RZ5_4,
+        adto:RZ6_5,
+        adto:RZ6_6,
+        adto:RZ6_7,
+        adto:RZ7_10,
+        adto:RZ7_8,
+        adto:RZ8_9,
+        adto:RZ9_11 .
+
+adto:RoadCorridor a owl:Class ;
+    rdfs:label "Road Corridor" ;
+    rdfs:comment "A named roadway corridor made of road segments." ;
+    rdfs:subClassOf adto:TransportInfrastructure ;
+    ns1:altLabel "Corridor" .
+
+adto:RoadRoller a owl:Class ;
+    rdfs:label "Road Roller" ;
+    rdfs:comment "Road roller/compactor." ;
+    rdfs:subClassOf adto:Equipment .
+
+adto:School a owl:Class ;
+    rdfs:label "School" ;
+    rdfs:comment "Educational facility." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:SensorReading a owl:Class ;
+    rdfs:label "Sensor Reading" ;
+    rdfs:comment "A sensor observation (SOSA core)." ;
+    rdfs:subClassOf adto:Entity,
+        <http://www.w3.org/ns/sosa/Observation> .
+
+adto:SewerLine a owl:Class ;
+    rdfs:label "Sewer Line" ;
+    rdfs:comment "Sewer or drainage line." ;
+    rdfs:subClassOf adto:UtilityInfrastructure .
+
+adto:SpecialPurposeZone a adto:Zone,
+        owl:NamedIndividual ;
+    rdfs:label "Special Purpose Zone" .
+
+adto:Stadium a owl:Class ;
+    rdfs:label "Stadium" ;
+    rdfs:comment "Sports arena or stadium." ;
+    rdfs:subClassOf adto:BuildingInfrastructure .
+
+adto:TelecomTower a owl:Class ;
+    rdfs:label "Telecom Tower" ;
+    rdfs:comment "Telecommunications tower." ;
+    rdfs:subClassOf adto:UtilityInfrastructure .
+
+adto:TramStop a owl:Class ;
+    rdfs:label "Tram Stop" ;
+    rdfs:comment "Tram/light rail stop." ;
+    rdfs:subClassOf adto:PublicTransportNode .
+
+adto:Truck a owl:Class ;
+    rdfs:label "Truck" ;
+    rdfs:comment "General-purpose truck." ;
+    rdfs:subClassOf adto:Vehicle .
+
+adto:Tunnel a owl:Class ;
+    rdfs:label "Tunnel" ;
+    rdfs:comment "Underground or covered passage." ;
+    rdfs:subClassOf adto:TransportInfrastructure .
+
+adto:WasteManagementFacility a owl:Class ;
+    rdfs:label "Waste Management Facility" ;
+    rdfs:comment "Municipal waste management site." ;
+    rdfs:subClassOf adto:OtherInfrastructure .
+
+adto:assignedTo a owl:ObjectProperty ;
+    rdfs:label "assigned to" ;
+    rdfs:domain adto:WorkOrder ;
+    rdfs:range adto:Agent .
+
+adto:containsZone a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain adto:Zone ;
+    rdfs:range adto:Zone .
+
+adto:dependsOn a owl:ObjectProperty ;
+    rdfs:label "depends on" ;
+    rdfs:domain adto:Plan ;
+    rdfs:range adto:Plan .
+
+adto:hasDiameter a owl:DatatypeProperty ;
+    rdfs:label "Diameter" .
+
+adto:hasEndDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "end date" ;
+    rdfs:range xsd:date .
+
+adto:hasGeometry a owl:ObjectProperty ;
+    rdfs:label "has geometry" ;
+    rdfs:comment "Attach WKT/GeoJSON geometry." ;
+    rdfs:domain adto:PhysicalAsset ;
+    rdfs:range geo:Geometry ;
+    rdfs:subPropertyOf geo:hasGeometry .
+
+adto:hasLength a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "length" .
+
+adto:hasName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "name" ;
+    rdfs:range xsd:string .
+
+adto:hasPart a owl:ObjectProperty ;
+    rdfs:label "has part" ;
+    rdfs:comment "Whole-part relation between assets." ;
+    rdfs:domain adto:PhysicalAsset ;
+    rdfs:range adto:PhysicalAsset ;
+    owl:inverseOf adto:isPartOf .
+
+adto:hasRoadClass a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "road class" .
+
+adto:hasRoadSegment a owl:ObjectProperty ;
+    rdfs:label "has road segment"@en ;
+    rdfs:domain adto:Road ;
+    rdfs:range adto:RoadSegment .
+
+adto:hasStartDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "start date" ;
+    rdfs:range xsd:date .
+
+adto:hasStatus a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "status" ;
+    rdfs:comment "Free text or SKOS label." ;
+    rdfs:range xsd:string .
+
+adto:hasWidth a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "width" .
+
+adto:isLocatedIn a owl:ObjectProperty ;
+    rdfs:label "is located in" ;
+    rdfs:domain adto:PhysicalAsset ;
+    rdfs:range adto:Zone .
+
+ns1:altLabel a owl:AnnotationProperty .
+
+geo:Feature a owl:Class .
+
+geo:hasGeometry a owl:ObjectProperty .
+
+adto:CZ1_13 a adto:Zone ;
+    rdfs:label "CZ 1" ;
+    adto:hasGeometry adto:CZ1_13_geom .
+
+adto:CZ1_13_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.44503419771415 16.525172084501506, 80.44501130125789 16.521485755043983, 80.44954479959695 16.521394169218954, 80.44959059250947 16.52519498095776, 80.44503419771415 16.525172084501506)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.44503419771415,16.525172084501506],[80.44501130125789,16.521485755043983],[80.44954479959695,16.521394169218954],[80.44959059250947,16.52519498095776],[80.44503419771415,16.525172084501506]]]]}" .
+
+adto:CZ2_14 a adto:Zone ;
+    rdfs:label "CZ 2" ;
+    adto:hasGeometry adto:CZ2_14_geom .
+
+adto:CZ2_14_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4498424535283 16.52512629158899, 80.4498424535283 16.5215315479565, 80.45600160026167 16.521417065675212, 80.45602449671793 16.52521787741402, 80.4498424535283 16.52512629158899)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4498424535283,16.52512629158899],[80.4498424535283,16.5215315479565],[80.45600160026167,16.521417065675212],[80.45602449671793,16.52521787741402],[80.4498424535283,16.52512629158899]]]]}" .
+
+adto:CZ3_15 a adto:Zone ;
+    rdfs:label "CZ 3" ;
+    adto:hasGeometry adto:CZ3_15_geom .
+
+adto:CZ3_15_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43673423232069 16.525194980957767, 80.43672278409255 16.52135982453457, 80.4424354499289 16.52134837630644, 80.44248124284141 16.52526367032654, 80.43673423232069 16.525194980957767)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43673423232069,16.525194980957767],[80.43672278409255,16.52135982453457],[80.4424354499289,16.52134837630644],[80.44248124284141,16.52526367032654],[80.43673423232069,16.525194980957767]]]]}" .
+
+adto:CZ5_16 a adto:Zone ;
+    rdfs:label "CZ 5" ;
+    adto:hasGeometry adto:CZ5_16_geom .
+
+adto:CZ5_16_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43991683974053 16.520901895409406, 80.43998552910931 16.519070178908777, 80.44424426997328 16.51902438599626, 80.44431295934204 16.52097058477818, 80.43991683974053 16.520901895409406)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43991683974053,16.520901895409406],[80.43998552910931,16.519070178908777],[80.44424426997328,16.51902438599626],[80.44431295934204,16.52097058477818],[80.43991683974053,16.520901895409406]]]]}" .
+
+adto:CZ6_18 a adto:Zone ;
+    rdfs:label "CZ 6" ;
+    adto:hasGeometry adto:CZ6_18_geom .
+
+adto:CZ6_18_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.44520592113608 16.513872683338235, 80.44516012822356 16.511903588100058, 80.44916700806868 16.511903588100058, 80.44918990452494 16.51391847625075, 80.44520592113608 16.513872683338235)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.44520592113608,16.513872683338235],[80.44516012822356,16.511903588100058],[80.44916700806868,16.511903588100058],[80.44918990452494,16.51391847625075],[80.44520592113608,16.513872683338235]]]]}" .
+
+adto:CZ7_17 a adto:Zone ;
+    rdfs:label "CZ 7" ;
+    adto:hasGeometry adto:CZ7_17_geom .
+
+adto:CZ7_17_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43987104682802 16.51378109751321, 80.4398252539155 16.51204096683761, 80.44007711493434 16.51178910581877, 80.44415268414825 16.51192648455632, 80.44426716642953 16.513895579794497, 80.43987104682802 16.51378109751321)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43987104682802,16.51378109751321],[80.4398252539155,16.51204096683761],[80.44007711493434,16.51178910581877],[80.44415268414825,16.51192648455632],[80.44426716642953,16.513895579794497],[80.43987104682802,16.51378109751321]]]]}" .
+
+adto:E10_32_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E10_32_01_geom ;
+    adto:hasName "E10_32_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E10_32_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48604747498614 16.481720334638144, 80.49464151674005 16.48171389500988, 80.50395250377981 16.48175467932253, 80.5147538645349 16.48174528955659)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48604747498614,16.481720334638144],[80.49464151674005,16.48171389500988],[80.50395250377981,16.48175467932253],[80.5147538645349,16.48174528955659]]}" .
+
+adto:E10_32_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E10_32_02_geom ;
+    adto:hasName "E10_32_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E10_32_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5147538645349 16.48174528955659, 80.54346033905281 16.481720334638144)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5147538645349,16.48174528955659],[80.54346033905281,16.481720334638144]]}" .
+
+adto:E10_32_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48604747498614 16.481720334638144, 80.49464151674005 16.48171389500988, 80.50395250377981 16.48175467932253, 80.54346033905281 16.481720334638144)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48604747498614,16.481720334638144],[80.49464151674005,16.48171389500988],[80.50395250377981,16.48175467932253],[80.54346033905281,16.481720334638144]]}" .
+
+adto:E11_33_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E11_33_01_geom ;
+    adto:hasName "E11_33_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E11_33_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50389526263918 16.478446141393263, 80.53602471488307 16.47848048607765)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50389526263918,16.478446141393263],[80.53602471488307,16.47848048607765]]}" .
+
+adto:E11_33_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E11_33_02_geom ;
+    adto:hasName "E11_33_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E11_33_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53602471488307 16.47848048607765, 80.56815416712696 16.47851483076204)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53602471488307,16.47848048607765],[80.56815416712696,16.47851483076204]]}" .
+
+adto:E11_33_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50389526263918 16.478446141393263, 80.56815416712696 16.47851483076204)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50389526263918,16.478446141393263],[80.56815416712696,16.47851483076204]]}" .
+
+adto:E12_34_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E12_34_01_geom ;
+    adto:hasName "E12_34_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E12_34_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50392960732351 16.468909767361847, 80.53356906994935 16.46895556027436)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50392960732351,16.468909767361847],[80.53356906994935,16.46895556027436]]}" .
+
+adto:E12_34_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E12_34_02_geom ;
+    adto:hasName "E12_34_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E12_34_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53356906994935 16.46895556027436, 80.5632085325752 16.469001353186876)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53356906994935,16.46895556027436],[80.5632085325752,16.469001353186876]]}" .
+
+adto:E12_34_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50392960732351 16.468909767361847, 80.5632085325752 16.469001353186876)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50392960732351,16.468909767361847],[80.5632085325752,16.469001353186876]]}" .
+
+adto:E13A_41_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E13A_41_01_geom ;
+    adto:hasName "E13A_41_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E13A_41_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4315310126361 16.516397017640696, 80.47262836283352 16.516439590739093)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4315310126361,16.516397017640696],[80.47262836283352,16.516439590739093]]}" .
+
+adto:E13A_41_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E13A_41_02_geom ;
+    adto:hasName "E13A_41_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E13A_41_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.47262836283352 16.516439590739093, 80.51372571303095 16.51648216383749)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.47262836283352,16.516439590739093],[80.51372571303095,16.51648216383749]]}" .
+
+adto:E13A_41_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4315310126361 16.516397017640696, 80.51372571303095 16.51648216383749)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4315310126361,16.516397017640696],[80.51372571303095,16.51648216383749]]}" .
+
+adto:E13_35_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E13_35_01_geom ;
+    adto:hasName "E13_35_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E13_35_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49864052592797 16.45940773801483, 80.53082149519844 16.459464979155477)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49864052592797,16.45940773801483],[80.53082149519844,16.459464979155477]]}" .
+
+adto:E13_35_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E13_35_02_geom ;
+    adto:hasName "E13_35_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E13_35_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53082149519844 16.459464979155477, 80.5630024644689 16.459522220296122)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53082149519844,16.459464979155477],[80.5630024644689,16.459522220296122]]}" .
+
+adto:E13_35_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49864052592797 16.45940773801483, 80.5630024644689 16.459522220296122)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49864052592797,16.45940773801483],[80.5630024644689,16.459522220296122]]}" .
+
+adto:E14A_39_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E14A_39_01_geom ;
+    adto:hasName "E14A_39_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E14A_39_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42860026623505 16.52118237699861, 80.44052934977701 16.52114453789195)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42860026623505,16.52118237699861],[80.44052934977701,16.52114453789195]]}" .
+
+adto:E14A_39_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E14A_39_02_geom ;
+    adto:hasName "E14A_39_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E14A_39_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44052934977701 16.52114453789195, 80.4495784287676 16.521115834172683, 80.45245843020295 16.521125904107773)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44052934977701,16.52114453789195],[80.4495784287676,16.521115834172683],[80.45245843020295,16.521125904107773]]}" .
+
+adto:E14A_39_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E14A_39_03_geom ;
+    adto:hasName "E14A_39_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E14A_39_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45245843020295 16.521125904107773, 80.45940100850218 16.521150178857074, 80.4643874273661 16.5211823769986)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45245843020295,16.521125904107773],[80.45940100850218,16.521150178857074],[80.4643874273661,16.5211823769986]]}" .
+
+adto:E14A_39_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42860026623505 16.52118237699861, 80.4495784287676 16.521115834172683, 80.45940100850218 16.521150178857074, 80.4643874273661 16.5211823769986)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42860026623505,16.52118237699861],[80.4495784287676,16.521115834172683],[80.45940100850218,16.521150178857074],[80.4643874273661,16.5211823769986]]}" .
+
+adto:E15B_40_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E15B_40_01_geom ;
+    adto:hasName "E15B_40_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E15B_40_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4643874273661 16.5211823769986, 80.46924648469309 16.52115590297113, 80.48414703343417 16.52114759771695)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4643874273661,16.5211823769986],[80.46924648469309,16.52115590297113],[80.48414703343417,16.52114759771695]]}" .
+
+adto:E15B_40_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E15B_40_02_geom ;
+    adto:hasName "E15B_40_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E15B_40_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48414703343417 16.52114759771695, 80.50390671086727 16.52113658408608)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48414703343417,16.52114759771695],[80.50390671086727,16.52113658408608]]}" .
+
+adto:E15B_40_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4643874273661 16.5211823769986, 80.46924648469309 16.52115590297113, 80.50390671086727 16.52113658408608)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4643874273661,16.5211823769986],[80.46924648469309,16.52115590297113],[80.50390671086727,16.52113658408608]]}" .
+
+adto:E15_36_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E15_36_01_geom ;
+    adto:hasName "E15_36_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E15_36_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50397540023604 16.4500201909491, 80.52676323027688 16.44998538265474)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50397540023604,16.4500201909491],[80.52676323027688,16.44998538265474]]}" .
+
+adto:E15_36_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E15_36_02_geom ;
+    adto:hasName "E15_36_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E15_36_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.52676323027688 16.44998538265474, 80.54894404032653 16.44995150158033, 80.54950724357882 16.450177944125063)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.52676323027688,16.44998538265474],[80.54894404032653,16.44995150158033],[80.54950724357882,16.450177944125063]]}" .
+
+adto:E15_36_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E15_36_03_geom ;
+    adto:hasName "E15_36_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E15_36_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54950724357882 16.450177944125063, 80.55338595284056 16.451737425168446, 80.55649987089163 16.45111922084948, 80.56322785146035 16.449160858325218, 80.57142836037177 16.44722682328564)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54950724357882,16.450177944125063],[80.55338595284056,16.451737425168446],[80.55649987089163,16.45111922084948],[80.56322785146035,16.449160858325218],[80.57142836037177,16.44722682328564]]}" .
+
+adto:E15_36_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50397540023604 16.4500201909491, 80.54894404032653 16.44995150158033, 80.55338595284056 16.451737425168446, 80.55649987089163 16.45111922084948, 80.56322785146035 16.449160858325218, 80.57142836037177 16.44722682328564)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50397540023604,16.4500201909491],[80.54894404032653,16.44995150158033],[80.55338595284056,16.451737425168446],[80.55649987089163,16.45111922084948],[80.56322785146035,16.449160858325218],[80.57142836037177,16.44722682328564]]}" .
+
+adto:E16_37_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E16_37_01_geom ;
+    adto:hasName "E16_37_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E16_37_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49668287891788 16.44209801708388, 80.53114252402098 16.442104407967612)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49668287891788,16.44209801708388],[80.53114252402098,16.442104407967612]]}" .
+
+adto:E16_37_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E16_37_02_geom ;
+    adto:hasName "E16_37_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E16_37_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53114252402098 16.442104407967612, 80.55841172498917 16.442109465312, 80.56321998080332 16.436763142775785)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53114252402098,16.442104407967612],[80.55841172498917,16.442109465312],[80.56321998080332,16.436763142775785]]}" .
+
+adto:E16_37_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49668287891788 16.44209801708388, 80.55841172498917 16.442109465312, 80.56321998080332 16.436763142775785)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49668287891788,16.44209801708388],[80.55841172498917,16.442109465312],[80.56321998080332,16.436763142775785]]}" .
+
+adto:E17_38_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E17_38_01_geom ;
+    adto:hasName "E17_38_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E17_38_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49550371142058 16.431016132255053, 80.50957358379105 16.431027580483182)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49550371142058,16.431016132255053],[80.50957358379105,16.431027580483182]]}" .
+
+adto:E17_38_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E17_38_02_geom ;
+    adto:hasName "E17_38_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E17_38_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50957358379105 16.431027580483182, 80.52364345616152 16.431039028711307)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50957358379105,16.431027580483182],[80.52364345616152,16.431039028711307]]}" .
+
+adto:E17_38_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49550371142058 16.431016132255053, 80.52364345616152 16.431039028711307)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49550371142058,16.431016132255053],[80.52364345616152,16.431039028711307]]}" .
+
+adto:E1_24_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E1_24_01_geom ;
+    adto:hasName "E1_24_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E1_24_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45669922666347 16.558935771310882, 80.45817604809211 16.558374808132566, 80.45964714540668 16.55789398255115, 80.46020810858501 16.557733707357343, 80.4607677026768 16.55769760451271)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45669922666347,16.558935771310882],[80.45817604809211,16.558374808132566],[80.45964714540668,16.55789398255115],[80.46020810858501,16.557733707357343],[80.4607677026768,16.55769760451271]]}" .
+
+adto:E1_24_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E1_24_02_geom ;
+    adto:hasName "E1_24_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E1_24_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4607677026768 16.55769760451271, 80.46145024133699 16.55765356976044, 80.4632705096095 16.55764212153231, 80.46503785781131 16.557648822378574)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4607677026768,16.55769760451271],[80.46145024133699,16.55765356976044],[80.4632705096095,16.55764212153231],[80.46503785781131,16.557648822378574]]}" .
+
+adto:E1_24_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E1_24_03_geom ;
+    adto:hasName "E1_24_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E1_24_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46503785781131 16.557648822378574, 80.4693094499475 16.55766501798857)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46503785781131,16.557648822378574],[80.4693094499475,16.55766501798857]]}" .
+
+adto:E1_24_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45669922666347 16.558935771310882, 80.45817604809211 16.558374808132566, 80.45964714540668 16.55789398255115, 80.46020810858501 16.557733707357343, 80.46145024133699 16.55765356976044, 80.4632705096095 16.55764212153231, 80.4693094499475 16.55766501798857)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45669922666347,16.558935771310882],[80.45817604809211,16.558374808132566],[80.45964714540668,16.55789398255115],[80.46020810858501,16.557733707357343],[80.46145024133699,16.55765356976044],[80.4632705096095,16.55764212153231],[80.4693094499475,16.55766501798857]]}" .
+
+adto:E2_25_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E2_25_01_geom ;
+    adto:hasName "E2_25_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E2_25_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45068318278169 16.555083442545488, 80.46876963112693 16.555096205423414)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45068318278169,16.555083442545488],[80.46876963112693,16.555096205423414]]}" .
+
+adto:E2_25_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E2_25_02_geom ;
+    adto:hasName "E2_25_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E2_25_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46876963112693 16.555096205423414, 80.48685607947218 16.555108968301337)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46876963112693,16.555096205423414],[80.48685607947218,16.555108968301337]]}" .
+
+adto:E2_25_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E2_25_03_geom ;
+    adto:hasName "E2_25_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E2_25_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48685607947218 16.555108968301337, 80.49529764331447 16.555114925172845, 80.49610474339755 16.555154993971296, 80.49708929101664 16.55468561661801, 80.49823411382953 16.55403306761466, 80.49953921183624 16.55335762215505, 80.50123354959932 16.5526249355548, 80.50401546903464 16.551228251723074)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48685607947218,16.555108968301337],[80.49529764331447,16.555114925172845],[80.49610474339755,16.555154993971296],[80.49708929101664,16.55468561661801],[80.49823411382953,16.55403306761466],[80.49953921183624,16.55335762215505],[80.50123354959932,16.5526249355548],[80.50401546903464,16.551228251723074]]}" .
+
+adto:E2_25_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45068318278169 16.555083442545488, 80.49529764331447 16.555114925172845, 80.49610474339755 16.555154993971296, 80.49708929101664 16.55468561661801, 80.49823411382953 16.55403306761466, 80.49953921183624 16.55335762215505, 80.50123354959932 16.5526249355548, 80.50401546903464 16.551228251723074)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45068318278169,16.555083442545488],[80.49529764331447,16.555114925172845],[80.49610474339755,16.555154993971296],[80.49708929101664,16.55468561661801],[80.49823411382953,16.55403306761466],[80.49953921183624,16.55335762215505],[80.50123354959932,16.5526249355548],[80.50401546903464,16.551228251723074]]}" .
+
+adto:E3_26_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E3_26_01_geom ;
+    adto:hasName "E3_26_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E3_26_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4364931040163 16.54500256216371, 80.49524612628784 16.54503476030531, 80.50044362185838 16.54308856152339, 80.50631056243982 16.540191669199753)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4364931040163,16.54500256216371],[80.49524612628784,16.54503476030531],[80.50044362185838,16.54308856152339],[80.50631056243982,16.540191669199753]]}" .
+
+adto:E3_26_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E3_26_02_geom ;
+    adto:hasName "E3_26_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E3_26_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50631056243982 16.540191669199753, 80.51060034675181 16.538073522088673, 80.51395467759357 16.54427846173456, 80.51785852338554 16.551651120649602, 80.51857976175766 16.55254408244366, 80.5190720355672 16.55276159877811, 80.51957575760488 16.55285318460314, 80.52001079027377 16.55285318460314, 80.52049161585519 16.552715805865592, 80.52124719891171 16.552338014337337, 80.52413215240018 16.55088408936496, 80.5263531086572 16.549785059464583, 80.52774979248893 16.549052372864328, 80.52841378972042 16.54841127208911, 80.52848247908919 16.54751831029505, 80.5282077216141 16.546716934326025, 80.5265248320791 16.54375184324063, 80.52350249985305 16.538027729176157, 80.5216249904399 16.53445588199993, 80.5208672608404 16.53299122431366, 80.53985289334788 16.523626181517013)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50631056243982,16.540191669199753],[80.51060034675181,16.538073522088673],[80.51395467759357,16.54427846173456],[80.51785852338554,16.551651120649602],[80.51857976175766,16.55254408244366],[80.5190720355672,16.55276159877811],[80.51957575760488,16.55285318460314],[80.52001079027377,16.55285318460314],[80.52049161585519,16.552715805865592],[80.52124719891171,16.552338014337337],[80.52413215240018,16.55088408936496],[80.5263531086572,16.549785059464583],[80.52774979248893,16.549052372864328],[80.52841378972042,16.54841127208911],[80.52848247908919,16.54751831029505],[80.5282077216141,16.546716934326025],[80.5265248320791,16.54375184324063],[80.52350249985305,16.538027729176157],[80.5216249904399,16.53445588199993],[80.5208672608404,16.53299122431366],[80.53985289334788,16.523626181517013]]}" .
+
+adto:E3_26_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E3_26_03_geom ;
+    adto:hasName "E3_26_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E3_26_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53985289334788 16.523626181517013, 80.54978548509412 16.518726732064994, 80.55747869439678 16.51311710028181, 80.56457874237958 16.507226271395215, 80.56808190018708 16.50539455489458, 80.57300463828257 16.504043663975366, 80.57754958484975 16.50301332344376, 80.58866366782003 16.500134809583592, 80.59523495076603 16.498325989539218, 80.5977535609544 16.49672323760116, 80.60086747900549 16.49360931955009, 80.60205809473089 16.492510289649708)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53985289334788,16.523626181517013],[80.54978548509412,16.518726732064994],[80.55747869439678,16.51311710028181],[80.56457874237958,16.507226271395215],[80.56808190018708,16.50539455489458],[80.57300463828257,16.504043663975366],[80.57754958484975,16.50301332344376],[80.58866366782003,16.500134809583592],[80.59523495076603,16.498325989539218],[80.5977535609544,16.49672323760116],[80.60086747900549,16.49360931955009],[80.60205809473089,16.492510289649708]]}" .
+
+adto:E3_26_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4364931040163 16.54500256216371, 80.49524612628784 16.54503476030531, 80.50044362185838 16.54308856152339, 80.51060034675181 16.538073522088673, 80.51395467759357 16.54427846173456, 80.51785852338554 16.551651120649602, 80.51857976175766 16.55254408244366, 80.5190720355672 16.55276159877811, 80.51957575760488 16.55285318460314, 80.52001079027377 16.55285318460314, 80.52049161585519 16.552715805865592, 80.52124719891171 16.552338014337337, 80.52413215240018 16.55088408936496, 80.5263531086572 16.549785059464583, 80.52774979248893 16.549052372864328, 80.52841378972042 16.54841127208911, 80.52848247908919 16.54751831029505, 80.5282077216141 16.546716934326025, 80.5265248320791 16.54375184324063, 80.52350249985305 16.538027729176157, 80.5216249904399 16.53445588199993, 80.5208672608404 16.53299122431366, 80.54978548509412 16.518726732064994, 80.55747869439678 16.51311710028181, 80.56457874237958 16.507226271395215, 80.56808190018708 16.50539455489458, 80.57300463828257 16.504043663975366, 80.57754958484975 16.50301332344376, 80.58866366782003 16.500134809583592, 80.59523495076603 16.498325989539218, 80.5977535609544 16.49672323760116, 80.60086747900549 16.49360931955009, 80.60205809473089 16.492510289649708)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4364931040163,16.54500256216371],[80.49524612628784,16.54503476030531],[80.50044362185838,16.54308856152339],[80.51060034675181,16.538073522088673],[80.51395467759357,16.54427846173456],[80.51785852338554,16.551651120649602],[80.51857976175766,16.55254408244366],[80.5190720355672,16.55276159877811],[80.51957575760488,16.55285318460314],[80.52001079027377,16.55285318460314],[80.52049161585519,16.552715805865592],[80.52124719891171,16.552338014337337],[80.52413215240018,16.55088408936496],[80.5263531086572,16.549785059464583],[80.52774979248893,16.549052372864328],[80.52841378972042,16.54841127208911],[80.52848247908919,16.54751831029505],[80.5282077216141,16.546716934326025],[80.5265248320791,16.54375184324063],[80.52350249985305,16.538027729176157],[80.5216249904399,16.53445588199993],[80.5208672608404,16.53299122431366],[80.54978548509412,16.518726732064994],[80.55747869439678,16.51311710028181],[80.56457874237958,16.507226271395215],[80.56808190018708,16.50539455489458],[80.57300463828257,16.504043663975366],[80.57754958484975,16.50301332344376],[80.58866366782003,16.500134809583592],[80.59523495076603,16.498325989539218],[80.5977535609544,16.49672323760116],[80.60086747900549,16.49360931955009],[80.60205809473089,16.492510289649708]]}" .
+
+adto:E5_27_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E5_27_01_geom ;
+    adto:hasName "E5_27_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E5_27_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43648237130202 16.535464041589506, 80.48495278629301 16.535481383419555)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43648237130202,16.535464041589506],[80.48495278629301,16.535481383419555]]}" .
+
+adto:E5_27_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E5_27_02_geom ;
+    adto:hasName "E5_27_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E5_27_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48495278629301 16.535481383419555, 80.50047796654277 16.53548693804576, 80.50399257257835 16.534330667004735, 80.50762380743826 16.53252113144614, 80.52311111355368 16.524828637657713, 80.53018677157736 16.52132482623253)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48495278629301,16.535481383419555],[80.50047796654277,16.53548693804576],[80.50399257257835,16.534330667004735],[80.50762380743826,16.53252113144614],[80.52311111355368,16.524828637657713],[80.53018677157736,16.52132482623253]]}" .
+
+adto:E5_27_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E5_27_03_geom ;
+    adto:hasName "E5_27_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E5_27_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53018677157736 16.52132482623253, 80.53263603935696 16.520111967668594, 80.53944773509369 16.516791981511197, 80.54662577413053 16.513162893194323, 80.55030065535992 16.510564145409052, 80.55446781039885 16.50772498483308, 80.5593104108974 16.504393550447553, 80.56317991200498 16.50171466506538, 80.56559548814019 16.50084459972758, 80.57224690868308 16.50064997984939, 80.57301393996772 16.50064997984939)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53018677157736,16.52132482623253],[80.53263603935696,16.520111967668594],[80.53944773509369,16.516791981511197],[80.54662577413053,16.513162893194323],[80.55030065535992,16.510564145409052],[80.55446781039885,16.50772498483308],[80.5593104108974,16.504393550447553],[80.56317991200498,16.50171466506538],[80.56559548814019,16.50084459972758],[80.57224690868308,16.50064997984939],[80.57301393996772,16.50064997984939]]}" .
+
+adto:E5_27_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43648237130202 16.535464041589506, 80.50047796654277 16.53548693804576, 80.50399257257835 16.534330667004735, 80.50762380743826 16.53252113144614, 80.52311111355368 16.524828637657713, 80.53263603935696 16.520111967668594, 80.53944773509369 16.516791981511197, 80.54662577413053 16.513162893194323, 80.55030065535992 16.510564145409052, 80.55446781039885 16.50772498483308, 80.5593104108974 16.504393550447553, 80.56317991200498 16.50171466506538, 80.56559548814019 16.50084459972758, 80.57224690868308 16.50064997984939, 80.57301393996772 16.50064997984939)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43648237130202,16.535464041589506],[80.50047796654277,16.53548693804576],[80.50399257257835,16.534330667004735],[80.50762380743826,16.53252113144614],[80.52311111355368,16.524828637657713],[80.53263603935696,16.520111967668594],[80.53944773509369,16.516791981511197],[80.54662577413053,16.513162893194323],[80.55030065535992,16.510564145409052],[80.55446781039885,16.50772498483308],[80.5593104108974,16.504393550447553],[80.56317991200498,16.50171466506538],[80.56559548814019,16.50084459972758],[80.57224690868308,16.50064997984939],[80.57301393996772,16.50064997984939]]}" .
+
+adto:E6_28_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E6_28_01_geom ;
+    adto:hasName "E6_28_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E6_28_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42993970892631 16.526082218637832, 80.49030504829183 16.5261249098255)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42993970892631,16.526082218637832],[80.49030504829183,16.5261249098255]]}" .
+
+adto:E6_28_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E6_28_02_geom ;
+    adto:hasName "E6_28_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E6_28_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49030504829183 16.5261249098255, 80.49469088722358 16.526128011550348, 80.49885804226253 16.52553270368764, 80.50388023684012 16.523408341855493, 80.51007730582889 16.520541276223422, 80.51584721280588 16.51765632273493, 80.52321987172093 16.51413026847121, 80.5280739204476 16.511657451195358, 80.5324242471366 16.50950518430712, 80.53608768013787 16.507673467806487, 80.54547875129197 16.503048014849988)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49030504829183,16.5261249098255],[80.49469088722358,16.526128011550348],[80.49885804226253,16.52553270368764],[80.50388023684012,16.523408341855493],[80.51007730582889,16.520541276223422],[80.51584721280588,16.51765632273493],[80.52321987172093,16.51413026847121],[80.5280739204476,16.511657451195358],[80.5324242471366,16.50950518430712],[80.53608768013787,16.507673467806487],[80.54547875129197,16.503048014849988]]}" .
+
+adto:E6_28_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:E6_28_03_geom ;
+    adto:hasName "E6_28_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:E6_28_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54547875129197 16.503048014849988, 80.54836018069209 16.501628803354404, 80.56516617958538 16.493340286189056, 80.5744621408261 16.489356302800182, 80.57748089548097 16.487707042435364, 80.58142266352849 16.48509756193621, 80.58339175876665 16.48207522971017, 80.58948221613126 16.47392409128236, 80.59309985622001 16.46870369925556)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54547875129197,16.503048014849988],[80.54836018069209,16.501628803354404],[80.56516617958538,16.493340286189056],[80.5744621408261,16.489356302800182],[80.57748089548097,16.487707042435364],[80.58142266352849,16.48509756193621],[80.58339175876665,16.48207522971017],[80.58948221613126,16.47392409128236],[80.59309985622001,16.46870369925556]]}" .
+
+adto:E6_28_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42993970892631 16.526082218637832, 80.49469088722358 16.526128011550348, 80.49885804226253 16.52553270368764, 80.50388023684012 16.523408341855493, 80.51007730582889 16.520541276223422, 80.51584721280588 16.51765632273493, 80.52321987172093 16.51413026847121, 80.5280739204476 16.511657451195358, 80.5324242471366 16.50950518430712, 80.53608768013787 16.507673467806487, 80.54836018069209 16.501628803354404, 80.56516617958538 16.493340286189056, 80.5744621408261 16.489356302800182, 80.57748089548097 16.487707042435364, 80.58142266352849 16.48509756193621, 80.58339175876665 16.48207522971017, 80.58948221613126 16.47392409128236, 80.59309985622001 16.46870369925556)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42993970892631,16.526082218637832],[80.49469088722358,16.526128011550348],[80.49885804226253,16.52553270368764],[80.50388023684012,16.523408341855493],[80.51007730582889,16.520541276223422],[80.51584721280588,16.51765632273493],[80.52321987172093,16.51413026847121],[80.5280739204476,16.511657451195358],[80.5324242471366,16.50950518430712],[80.53608768013787,16.507673467806487],[80.54836018069209,16.501628803354404],[80.56516617958538,16.493340286189056],[80.5744621408261,16.489356302800182],[80.57748089548097,16.487707042435364],[80.58142266352849,16.48509756193621],[80.58339175876665,16.48207522971017],[80.58948221613126,16.47392409128236],[80.59309985622001,16.46870369925556]]}" .
+
+adto:E7_29_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E7_29_01_geom ;
+    adto:hasName "E7_29_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E7_29_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4149883229899 16.5069293329781, 80.4742615241275 16.506975125890612)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4149883229899,16.5069293329781],[80.4742615241275,16.506975125890612]]}" .
+
+adto:E7_29_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E7_29_02_geom ;
+    adto:hasName "E7_29_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E7_29_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4742615241275 16.506975125890612, 80.5335347252651 16.507020918803125)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4742615241275,16.506975125890612],[80.5335347252651,16.507020918803125]]}" .
+
+adto:E7_29_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4149883229899 16.5069293329781, 80.5335347252651 16.507020918803125)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4149883229899,16.5069293329781],[80.5335347252651,16.507020918803125]]}" .
+
+adto:E8_30_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E8_30_01_geom ;
+    adto:hasName "E8_30_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E8_30_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.41935009790696 16.497381510718554, 80.48353458891188 16.497398683060744)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.41935009790696,16.497381510718554],[80.48353458891188,16.497398683060744]]}" .
+
+adto:E8_30_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E8_30_02_geom ;
+    adto:hasName "E8_30_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E8_30_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48353458891188 16.497398683060744, 80.54771907991679 16.497415855402938)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48353458891188,16.497398683060744],[80.54771907991679,16.497415855402938]]}" .
+
+adto:E8_30_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.41935009790696 16.497381510718554, 80.54771907991679 16.497415855402938)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.41935009790696,16.497381510718554],[80.54771907991679,16.497415855402938]]}" .
+
+adto:E9_31_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:E9_31_01_geom ;
+    adto:hasName "E9_31_01" ;
+    adto:hasStatus "Completed" .
+
+adto:E9_31_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42075822996678 16.48619659183656, 80.48704347083336 16.48619659183656)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42075822996678,16.48619659183656],[80.48704347083336,16.48619659183656]]}" .
+
+adto:E9_31_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:E9_31_02_geom ;
+    adto:hasName "E9_31_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:E9_31_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48704347083336 16.48619659183656, 80.55332871169995 16.486196591836563)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48704347083336,16.48619659183656],[80.55332871169995,16.486196591836563]]}" .
+
+adto:E9_31_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42075822996678 16.48619659183656, 80.55332871169995 16.486196591836563)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42075822996678,16.48619659183656],[80.55332871169995,16.486196591836563]]}" .
+
+adto:EDUZ1_23 a adto:Zone ;
+    rdfs:label "EDUZ 1" ;
+    adto:hasGeometry adto:EDUZ1_23_geom .
+
+adto:EDUZ1_23_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.46465646072716 16.506374093913777, 80.46467935718341 16.50236721406865, 80.46877782285357 16.502252731787358, 80.4691441661537 16.502573282174968, 80.46916706260996 16.506694644301387, 80.4649541146585 16.506717540757645, 80.46465646072716 16.506374093913777)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.46465646072716,16.506374093913777],[80.46467935718341,16.50236721406865],[80.46877782285357,16.502252731787358],[80.4691441661537,16.502573282174968],[80.46916706260996,16.506694644301387],[80.4649541146585,16.506717540757645],[80.46465646072716,16.506374093913777]]]]}" .
+
+adto:EDZ2_24 a adto:Zone ;
+    rdfs:label "EDZ 2" ;
+    adto:hasGeometry adto:EDZ2_24_geom .
+
+adto:EDZ2_24_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.46470225363964 16.492475944965236, 80.46467935718339 16.486499969881926, 80.46905258032865 16.486477073425668, 80.46900678741613 16.492498841421494, 80.46470225363964 16.492475944965236)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.46470225363964,16.492475944965236],[80.46467935718339,16.486499969881926],[80.46905258032865,16.486477073425668],[80.46900678741613,16.492498841421494],[80.46470225363964,16.492475944965236]]]]}" .
+
+adto:GZ1_19 a adto:Zone ;
+    rdfs:label "GZ 1" ;
+    adto:hasGeometry adto:GZ1_19_geom .
+
+adto:GZ1_19_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.44489681897659 16.520959136550044, 80.44487392252033 16.517032394301815, 80.4452517140486 16.516700395686076, 80.44773597955258 16.516631706317302, 80.44767873841192 16.5209820330063, 80.44489681897659 16.520959136550044)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.44489681897659,16.520959136550044],[80.44487392252033,16.517032394301815],[80.4452517140486,16.516700395686076],[80.44773597955258,16.516631706317302],[80.44767873841192,16.5209820330063],[80.44489681897659,16.520959136550044]]]]}" .
+
+adto:GZ2_20 a adto:Zone ;
+    rdfs:label "GZ 2" ;
+    adto:hasGeometry adto:GZ2_20_geom .
+
+adto:GZ2_20_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.46455342667402 16.51582460623421, 80.46494839054446 16.516202397762466, 80.4672609326265 16.516213845990595, 80.46738113902185 16.516047846682728, 80.46735251845153 16.514393577718096, 80.4671006574327 16.514176061383644, 80.46475949478032 16.51415888904145, 80.46453053021776 16.514290543664934, 80.46455342667402 16.51582460623421)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.46455342667402,16.51582460623421],[80.46494839054446,16.516202397762466],[80.4672609326265,16.516213845990595],[80.46738113902185,16.516047846682728],[80.46735251845153,16.514393577718096],[80.4671006574327,16.514176061383644],[80.46475949478032,16.51415888904145],[80.46453053021776,16.514290543664934],[80.46455342667402,16.51582460623421]]]]}" .
+
+adto:GZ3_21 a adto:Zone ;
+    rdfs:label "GZ 3" ;
+    adto:hasGeometry adto:GZ3_21_geom .
+
+adto:GZ3_21_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4448853707485 16.534903078411098, 80.44486247429224 16.53382694496698, 80.44715211991802 16.53382694496698, 80.44725515397118 16.53521218057058, 80.44519447290797 16.535246525254966, 80.4448853707485 16.534903078411098)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4448853707485,16.534903078411098],[80.44486247429224,16.53382694496698],[80.44715211991802,16.53382694496698],[80.44725515397118,16.53521218057058],[80.44519447290797,16.535246525254966],[80.4448853707485,16.534903078411098]]]]}" .
+
+adto:GovZ1_25 a adto:Zone ;
+    rdfs:label "GovZ 1" ;
+    adto:hasGeometry adto:GovZ1_25_geom .
+
+adto:GovZ1_25_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4851373408498 16.554731409530426, 80.48522892667482 16.545527034114755, 80.48848022346345 16.545572827027268, 80.4883428447259 16.554914581180487, 80.4851373408498 16.554731409530426)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4851373408498,16.554731409530426],[80.48522892667482,16.545527034114755],[80.48848022346345,16.545572827027268],[80.4883428447259,16.554914581180487],[80.4851373408498,16.554731409530426]]]]}" .
+
+adto:GovZ2_26 a adto:Zone ;
+    rdfs:label "GovZ 2" ;
+    adto:hasGeometry adto:GovZ2_26_geom .
+
+adto:GovZ2_26_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.49090724782678 16.554731409530422, 80.49093014428304 16.545412551833465, 80.49427302689669 16.545412551833465, 80.49429592335295 16.55468561661791, 80.49090724782678 16.554731409530422)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.49090724782678,16.554731409530422],[80.49093014428304,16.545412551833465],[80.49427302689669,16.545412551833465],[80.49429592335295,16.55468561661791],[80.49090724782678,16.554731409530422]]]]}" .
+
+adto:GovZ3_27 a adto:Zone ;
+    rdfs:label "GovZ 3" ;
+    adto:hasGeometry adto:GovZ3_27_geom .
+
+adto:GovZ3_27_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.48504575502476 16.544565382951923, 80.48506865148101 16.535864729573927, 80.48854891283221 16.53584183311767, 80.48848022346344 16.544634072320697, 80.48504575502476 16.544565382951923)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.48504575502476,16.544565382951923],[80.48506865148101,16.535864729573927],[80.48854891283221,16.53584183311767],[80.48848022346344,16.544634072320697],[80.48504575502476,16.544565382951923]]]]}" .
+
+adto:GovZ4_28 a adto:Zone ;
+    rdfs:label "GovZ 4" ;
+    adto:hasGeometry adto:GovZ4_28_geom .
+
+adto:GovZ4_28_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.49095304073929 16.544542486495665, 80.49097593719554 16.535750247292636, 80.49429592335294 16.536231072874052, 80.49429592335294 16.54458827940818, 80.49095304073929 16.544542486495665)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.49095304073929,16.544542486495665],[80.49097593719554,16.535750247292636],[80.49429592335294,16.536231072874052],[80.49429592335294,16.54458827940818],[80.49095304073929,16.544542486495665]]]]}" .
+
+adto:IZ1_22 a adto:Zone ;
+    rdfs:label "IZ 1" ;
+    adto:hasGeometry adto:IZ1_22_geom .
+
+adto:IZ1_22_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4395619446685 16.540421124369256, 80.43951615175598 16.535887626030195, 80.4370662309364 16.53581893666142, 80.43660830181123 16.536025004767744, 80.43674568054878 16.544359314845615, 80.43718071321769 16.544748554602, 80.44414123592009 16.54461117586445, 80.44437020048267 16.544336418389356, 80.44437020048267 16.540398227913, 80.4395619446685 16.540421124369256)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4395619446685,16.540421124369256],[80.43951615175598,16.535887626030195],[80.4370662309364,16.53581893666142],[80.43660830181123,16.536025004767744],[80.43674568054878,16.544359314845615],[80.43718071321769,16.544748554602],[80.44414123592009,16.54461117586445],[80.44437020048267,16.544336418389356],[80.44437020048267,16.540398227913],[80.4395619446685,16.540421124369256]]]]}" .
+
+adto:Main1_1_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53839449810556 16.43560114762064, 80.53802815480545 16.502275628243606)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53839449810556,16.43560114762064,0.0],[80.53802815480545,16.502275628243606,0.0]]}" .
+
+adto:Main22_8_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45232671903206 16.489945886548732, 80.45250989068212 16.54306566506703)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45232671903206,16.489945886548732,0.0],[80.45250989068212,16.54306566506703,0.0]]}" .
+
+adto:Main2_2_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.51842878824868 16.437066520821144, 80.51868064926741 16.50228707647173)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.51842878824868,16.437066520821144,0.0],[80.51868064926741,16.50228707647173,0.0]]}" .
+
+adto:Main3_3_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5107785098014 16.437218209843845, 80.51092447471004 16.502255593844367)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5107785098014,16.437218209843845,0.0],[80.51092447471004,16.502255593844367,0.0]]}" .
+
+adto:Main4_4_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53802815480545 16.502275628243606, 80.428251095277 16.502172594190444)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53802815480545,16.502275628243606,0.0],[80.428251095277,16.502172594190444,0.0]]}" .
+
+adto:Main5_5_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43168556371565 16.51261337824404, 80.54058110967814 16.510598490093344)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43168556371565,16.51261337824404,0.0],[80.54058110967814,16.510598490093344,0.0]]}" .
+
+adto:Main5_6_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43791339981777 16.531296886550475, 80.49973383171407 16.53102212907538, 80.54058110967814 16.510598490093344)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43791339981777,16.531296886550475,0.0],[80.49973383171407,16.53102212907538,0.0],[80.54058110967814,16.510598490093344,0.0]]}" .
+
+adto:Main8_7_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.47949336438208 16.489350578686032, 80.4790697799413 16.55066728854465)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.47949336438208,16.489350578686032,0.0],[80.4790697799413,16.55066728854465,0.0]]}" .
+
+adto:N10_9_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N10_9_01_geom ;
+    adto:hasName "N10_9_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N10_9_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46928082937745 16.48607280786999, 80.46926365703527 16.50361435542056)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46928082937745,16.48607280786999],[80.46926365703527,16.50361435542056]]}" .
+
+adto:N10_9_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N10_9_02_geom ;
+    adto:hasName "N10_9_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N10_9_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46926365703527 16.50361435542056, 80.46924648469309 16.52115590297113)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46926365703527,16.50361435542056],[80.46924648469309,16.52115590297113]]}" .
+
+adto:N10_9_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46928082937745 16.48607280786999, 80.46924648469309 16.52115590297113)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46928082937745,16.48607280786999],[80.46924648469309,16.52115590297113]]}" .
+
+adto:N11_8_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N11_8_01_geom ;
+    adto:hasName "N11_8_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N11_8_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46432374659766 16.486004118501214, 80.46434091893983 16.52340547979847)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46432374659766,16.486004118501214],[80.46434091893983,16.52340547979847]]}" .
+
+adto:N11_8_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N11_8_02_geom ;
+    adto:hasName "N11_8_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N11_8_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46434091893983 16.52340547979847, 80.464358091282 16.56080684109573)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46434091893983,16.52340547979847],[80.464358091282,16.56080684109573]]}" .
+
+adto:N11_8_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.46432374659766 16.486004118501214, 80.464358091282 16.56080684109573)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.46432374659766,16.486004118501214],[80.464358091282,16.56080684109573]]}" .
+
+adto:N12_7_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N12_7_01_geom ;
+    adto:hasName "N12_7_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N12_7_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45941245673032 16.486702460417078, 80.45940673261626 16.503926319637074)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45941245673032,16.486702460417078],[80.45940673261626,16.503926319637074]]}" .
+
+adto:N12_7_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N12_7_02_geom ;
+    adto:hasName "N12_7_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N12_7_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45940673261626 16.503926319637074, 80.45940100850218 16.521150178857074)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45940673261626,16.503926319637074],[80.45940100850218,16.521150178857074]]}" .
+
+adto:N12_7_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45941245673032 16.486702460417078, 80.45940100850218 16.521150178857074)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45941245673032,16.486702460417078],[80.45940100850218,16.521150178857074]]}" .
+
+adto:N13_6_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N13_6_01_geom ;
+    adto:hasName "N13_6_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N13_6_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45634433159178 16.48733211296417, 80.45634433159178 16.525725088727317)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45634433159178,16.48733211296417],[80.45634433159178,16.525725088727317]]}" .
+
+adto:N13_6_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N13_6_02_geom ;
+    adto:hasName "N13_6_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N13_6_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45634433159178 16.525725088727317, 80.45634433159178 16.558528643698068, 80.46003066104929 16.562730143421394)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45634433159178,16.525725088727317],[80.45634433159178,16.558528643698068],[80.46003066104929,16.562730143421394]]}" .
+
+adto:N13_6_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.45634433159178 16.48733211296417, 80.45634433159178 16.558528643698068, 80.46003066104929 16.562730143421394)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.45634433159178,16.48733211296417],[80.45634433159178,16.558528643698068],[80.46003066104929,16.562730143421394]]}" .
+
+adto:N14_5_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N14_5_01_geom ;
+    adto:hasName "N14_5_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N14_5_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44960132522385 16.48622163483566, 80.44958987699573 16.50366873450417)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44960132522385,16.48622163483566],[80.44958987699573,16.50366873450417]]}" .
+
+adto:N14_5_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N14_5_02_geom ;
+    adto:hasName "N14_5_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N14_5_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44958987699573 16.50366873450417, 80.4495784287676 16.521115834172683)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44958987699573,16.50366873450417],[80.4495784287676,16.521115834172683]]}" .
+
+adto:N14_5_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44960132522385 16.48622163483566, 80.4495784287676 16.521115834172683)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44960132522385,16.48622163483566],[80.4495784287676,16.521115834172683]]}" .
+
+adto:N15_4_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N15_4_01_geom ;
+    adto:hasName "N15_4_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N15_4_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44464424244408 16.48069214064938, 80.44464138038704 16.512867385805777)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44464424244408,16.48069214064938],[80.44464138038704,16.512867385805777]]}" .
+
+adto:N15_4_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N15_4_02_geom ;
+    adto:hasName "N15_4_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N15_4_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44464138038704 16.512867385805777, 80.44463851833 16.54504263096217)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44464138038704,16.512867385805777],[80.44463851833,16.54504263096217]]}" .
+
+adto:N15_4_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.44464424244408 16.48069214064938, 80.44463851833 16.54504263096217)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.44464424244408,16.48069214064938],[80.44463851833,16.54504263096217]]}" .
+
+adto:N16_3_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N16_3_01_geom ;
+    adto:hasName "N16_3_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N16_3_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43644731110379 16.48133896553865, 80.43647020756003 16.51317076385118)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43644731110379,16.48133896553865],[80.43647020756003,16.51317076385118]]}" .
+
+adto:N16_3_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N16_3_02_geom ;
+    adto:hasName "N16_3_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N16_3_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43647020756003 16.51317076385118, 80.4364931040163 16.54500256216371)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43647020756003,16.51317076385118],[80.4364931040163,16.54500256216371]]}" .
+
+adto:N16_3_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.43644731110379 16.48133896553865, 80.4364931040163 16.54500256216371)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.43644731110379,16.48133896553865],[80.4364931040163,16.54500256216371]]}" .
+
+adto:N17_2_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N17_2_01_geom ;
+    adto:hasName "N17_2_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N17_2_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.429807338789 16.48637618591539, 80.42979589056088 16.491940024786054)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.429807338789,16.48637618591539],[80.42979589056088,16.491940024786054]]}" .
+
+adto:N17_2_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N17_2_02_geom ;
+    adto:hasName "N17_2_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N17_2_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42979589056088 16.491940024786054, 80.42978444233275 16.497503863656718)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42979589056088,16.491940024786054],[80.42978444233275,16.497503863656718]]}" .
+
+adto:N17_2_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.429807338789 16.48637618591539, 80.42978444233275 16.497503863656718)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.429807338789,16.48637618591539],[80.42978444233275,16.497503863656718]]}" .
+
+adto:N1_17_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N1_17_01_geom ;
+    adto:hasName "N1_17_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N1_17_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.57748089548097 16.487707042435364, 80.57751524016535 16.495360182939564)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.57748089548097,16.487707042435364],[80.57751524016535,16.495360182939564]]}" .
+
+adto:N1_17_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N1_17_02_geom ;
+    adto:hasName "N1_17_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N1_17_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.57751524016535 16.495360182939564, 80.57754958484975 16.50301332344376)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.57751524016535,16.495360182939564],[80.57754958484975,16.50301332344376]]}" .
+
+adto:N1_17_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.57748089548097 16.487707042435364, 80.57754958484975 16.50301332344376)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.57748089548097,16.487707042435364],[80.57754958484975,16.50301332344376]]}" .
+
+adto:N2_16_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N2_16_01_geom ;
+    adto:hasName "N2_16_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N2_16_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5730504311951 16.484787744262487, 80.57302753473883 16.49441570411893)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5730504311951,16.484787744262487],[80.57302753473883,16.49441570411893]]}" .
+
+adto:N2_16_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N2_16_02_geom ;
+    adto:hasName "N2_16_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N2_16_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.57302753473883 16.49441570411893, 80.57300463828257 16.504043663975366)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.57302753473883,16.49441570411893],[80.57300463828257,16.504043663975366]]}" .
+
+adto:N2_16_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5730504311951 16.484787744262487, 80.57300463828257 16.504043663975366)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5730504311951,16.484787744262487],[80.57300463828257,16.504043663975366]]}" .
+
+adto:N3A_18_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3A_18_01_geom ;
+    adto:hasName "N3A_18_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N3A_18_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5680933484152 16.497758586732576, 80.56808762430114 16.501576570813576)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5680933484152,16.497758586732576],[80.56808762430114,16.501576570813576]]}" .
+
+adto:N3A_18_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3A_18_02_geom ;
+    adto:hasName "N3A_18_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N3A_18_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56808762430114 16.501576570813576, 80.56808190018708 16.50539455489458)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56808762430114,16.501576570813576],[80.56808190018708,16.50539455489458]]}" .
+
+adto:N3A_18_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5680933484152 16.497758586732576, 80.56808190018708 16.50539455489458)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5680933484152,16.497758586732576],[80.56808190018708,16.50539455489458]]}" .
+
+adto:N3B1_19_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3B1_19_01_geom ;
+    adto:hasName "N3B1_19_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N3B1_19_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56322785146035 16.449160858325218, 80.56319350677597 16.466894163696953)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56322785146035,16.449160858325218],[80.56319350677597,16.466894163696953]]}" .
+
+adto:N3B1_19_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3B1_19_02_geom ;
+    adto:hasName "N3B1_19_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N3B1_19_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56319350677597 16.466894163696953, 80.56315916209158 16.484627469068688)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56319350677597,16.466894163696953],[80.56315916209158,16.484627469068688]]}" .
+
+adto:N3B1_19_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56322785146035 16.449160858325218, 80.56315916209158 16.484627469068688)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56322785146035,16.449160858325218],[80.56315916209158,16.484627469068688]]}" .
+
+adto:N3B2_20_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3B2_20_01_geom ;
+    adto:hasName "N3B2_20_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N3B2_20_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56457874237958 16.507226271395215, 80.56321640323225 16.503963526378467, 80.56320647584894 16.50314948094788)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56457874237958,16.507226271395215],[80.56321640323225,16.503963526378467],[80.56320647584894,16.50314948094788]]}" .
+
+adto:N3B2_20_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3B2_20_02_geom ;
+    adto:hasName "N3B2_20_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N3B2_20_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56320647584894 16.50314948094788, 80.56317061031973 16.500208507552173, 80.56316500934574 16.498799862592946)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56320647584894,16.50314948094788],[80.56317061031973,16.500208507552173],[80.56316500934574,16.498799862592946]]}" .
+
+adto:N3B2_20_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3B2_20_03_geom ;
+    adto:hasName "N3B2_20_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:N3B2_20_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56316500934574 16.498799862592946, 80.56314771386346 16.49445004880332)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56316500934574,16.498799862592946],[80.56314771386346,16.49445004880332]]}" .
+
+adto:N3B2_20_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.56457874237958 16.507226271395215, 80.56321640323225 16.503963526378467, 80.56317061031973 16.500208507552173, 80.56314771386346 16.49445004880332)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.56457874237958,16.507226271395215],[80.56321640323225,16.503963526378467],[80.56317061031973,16.500208507552173],[80.56314771386346,16.49445004880332]]}" .
+
+adto:N3_15_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3_15_01_geom ;
+    adto:hasName "N3_15_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N3_15_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.51377150594347 16.430941003258017, 80.51375022846496 16.470687333106238)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.51377150594347,16.430941003258017],[80.51375022846496,16.470687333106238]]}" .
+
+adto:N3_15_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3_15_02_geom ;
+    adto:hasName "N3_15_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N3_15_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.51375022846496 16.470687333106238, 80.51372895098646 16.51043366295446)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.51375022846496,16.470687333106238],[80.51372895098646,16.51043366295446]]}" .
+
+adto:N3_15_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:N3_15_03_geom ;
+    adto:hasName "N3_15_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:N3_15_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.51372895098646 16.51043366295446, 80.51372571303095 16.51648216383749, 80.51420653861237 16.51916104921966, 80.51491632875637 16.52179414168932, 80.5164732877819 16.524747784546584, 80.51789286806988 16.527632738035077, 80.51931244835788 16.530265830504735, 80.5216249904399 16.53445588199993, 80.52350249985305 16.538027729176157, 80.5265248320791 16.54375184324063, 80.5282077216141 16.546716934326025)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.51372895098646,16.51043366295446],[80.51372571303095,16.51648216383749],[80.51420653861237,16.51916104921966],[80.51491632875637,16.52179414168932],[80.5164732877819,16.524747784546584],[80.51789286806988,16.527632738035077],[80.51931244835788,16.530265830504735],[80.5216249904399,16.53445588199993],[80.52350249985305,16.538027729176157],[80.5265248320791,16.54375184324063],[80.5282077216141,16.546716934326025]]}" .
+
+adto:N3_15_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.51377150594347 16.430941003258017, 80.51372571303095 16.51648216383749, 80.51420653861237 16.51916104921966, 80.51491632875637 16.52179414168932, 80.5164732877819 16.524747784546584, 80.51789286806988 16.527632738035077, 80.51931244835788 16.530265830504735, 80.5216249904399 16.53445588199993, 80.52350249985305 16.538027729176157, 80.5265248320791 16.54375184324063, 80.5282077216141 16.546716934326025)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.51377150594347,16.430941003258017],[80.51372571303095,16.51648216383749],[80.51420653861237,16.51916104921966],[80.51491632875637,16.52179414168932],[80.5164732877819,16.524747784546584],[80.51789286806988,16.527632738035077],[80.51931244835788,16.530265830504735],[80.5216249904399,16.53445588199993],[80.52350249985305,16.538027729176157],[80.5265248320791,16.54375184324063],[80.5282077216141,16.546716934326025]]}" .
+
+adto:N4A_21_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4A_21_01_geom ;
+    adto:hasName "N4A_21_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N4A_21_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5236398785905 16.41560610167929, 80.52363987859049 16.457358418714506)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5236398785905,16.41560610167929],[80.52363987859049,16.457358418714506]]}" .
+
+adto:N4A_21_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4A_21_02_geom ;
+    adto:hasName "N4A_21_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N4A_21_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.52363987859049 16.457358418714506, 80.52363987859047 16.499110735749724)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.52363987859049,16.457358418714506],[80.52363987859047,16.499110735749724]]}" .
+
+adto:N4A_21_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4A_21_03_geom ;
+    adto:hasName "N4A_21_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:N4A_21_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.52363987859047 16.499110735749724, 80.52363987859047 16.513660175603697, 80.52382305024058 16.516224578704577, 80.52534566458174 16.520712284131125, 80.52749793146997 16.524799301573157, 80.52982192178014 16.52897790484022, 80.53287859869056 16.53474781181721, 80.53468741873492 16.53827386608092)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.52363987859047,16.499110735749724],[80.52363987859047,16.513660175603697],[80.52382305024058,16.516224578704577],[80.52534566458174,16.520712284131125],[80.52749793146997,16.524799301573157],[80.52982192178014,16.52897790484022],[80.53287859869056,16.53474781181721],[80.53468741873492,16.53827386608092]]}" .
+
+adto:N4A_21_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5236398785905 16.41560610167929, 80.52363987859047 16.513660175603697, 80.52382305024058 16.516224578704577, 80.52534566458174 16.520712284131125, 80.52749793146997 16.524799301573157, 80.52982192178014 16.52897790484022, 80.53287859869056 16.53474781181721, 80.53468741873492 16.53827386608092)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5236398785905,16.41560610167929],[80.52363987859047,16.513660175603697],[80.52382305024058,16.516224578704577],[80.52534566458174,16.520712284131125],[80.52749793146997,16.524799301573157],[80.52982192178014,16.52897790484022],[80.53287859869056,16.53474781181721],[80.53468741873492,16.53827386608092]]}" .
+
+adto:N4B_22_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4B_22_01_geom ;
+    adto:hasName "N4B_22_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N4B_22_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5335769406064 16.42162786967512, 80.53356729257139 16.458425475228626)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5335769406064,16.42162786967512],[80.53356729257139,16.458425475228626]]}" .
+
+adto:N4B_22_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4B_22_02_geom ;
+    adto:hasName "N4B_22_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N4B_22_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53356729257139 16.458425475228626, 80.53355764453637 16.495223080782132)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53356729257139,16.458425475228626],[80.53355764453637,16.495223080782132]]}" .
+
+adto:N4B_22_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4B_22_03_geom ;
+    adto:hasName "N4B_22_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:N4B_22_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.53355764453637 16.495223080782132, 80.53355404415015 16.508954953842704, 80.53412645555659 16.512526801018936, 80.53566051812588 16.516190234020197, 80.5378585779266 16.520563457165455, 80.54056035976505 16.525417505892126, 80.5430789699534 16.529767832581125)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.53355764453637,16.495223080782132],[80.53355404415015,16.508954953842704],[80.53412645555659,16.512526801018936],[80.53566051812588,16.516190234020197],[80.5378585779266,16.520563457165455],[80.54056035976505,16.525417505892126],[80.5430789699534,16.529767832581125]]}" .
+
+adto:N4B_22_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5335769406064 16.42162786967512, 80.53355404415015 16.508954953842704, 80.53412645555659 16.512526801018936, 80.53566051812588 16.516190234020197, 80.5378585779266 16.520563457165455, 80.54056035976505 16.525417505892126, 80.5430789699534 16.529767832581125)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5335769406064,16.42162786967512],[80.53355404415015,16.508954953842704],[80.53412645555659,16.512526801018936],[80.53566051812588,16.516190234020197],[80.5378585779266,16.520563457165455],[80.54056035976505,16.525417505892126],[80.5430789699534,16.529767832581125]]}" .
+
+adto:N4_14_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4_14_01_geom ;
+    adto:hasName "N4_14_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N4_14_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50878007847929 16.430826520976737, 80.50879152670743 16.458514060706584)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50878007847929,16.430826520976737],[80.50879152670743,16.458514060706584]]}" .
+
+adto:N4_14_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N4_14_02_geom ;
+    adto:hasName "N4_14_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N4_14_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50879152670743 16.458514060706584, 80.50880297493556 16.48620160043643)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50879152670743,16.458514060706584],[80.50880297493556,16.48620160043643]]}" .
+
+adto:N4_14_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50878007847929 16.430826520976737, 80.50880297493556 16.48620160043643)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50878007847929,16.430826520976737],[80.50880297493556,16.48620160043643]]}" .
+
+adto:N6_13_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N6_13_01_geom ;
+    adto:hasName "N6_13_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N6_13_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5039031332964 16.421061182382736, 80.50389210607568 16.470352858951873)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5039031332964,16.421061182382736],[80.50389210607568,16.470352858951873]]}" .
+
+adto:N6_13_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N6_13_02_geom ;
+    adto:hasName "N6_13_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N6_13_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50389210607568 16.470352858951873, 80.50388107885496 16.51964453552101)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50389210607568,16.470352858951873],[80.50388107885496,16.51964453552101]]}" .
+
+adto:N6_13_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:N6_13_03_geom ;
+    adto:hasName "N6_13_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:N6_13_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.50388107885496 16.51964453552101, 80.50388023684012 16.523408341855493, 80.50495637028423 16.527323635875593, 80.50762380743826 16.53252113144614, 80.51060034675181 16.538073522088673, 80.51395467759357 16.54427846173456, 80.51785852338554 16.551651120649602, 80.51857976175766 16.55254408244366, 80.5190720355672 16.55276159877811, 80.51957575760488 16.55285318460314, 80.52001079027377 16.55285318460314, 80.52049161585519 16.552715805865592, 80.52124719891171 16.552338014337337, 80.52413215240018 16.55088408936496, 80.5263531086572 16.549785059464583, 80.52774979248893 16.549052372864328, 80.52841378972042 16.54841127208911, 80.52848247908919 16.54751831029505, 80.5282077216141 16.546716934326025)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.50388107885496,16.51964453552101],[80.50388023684012,16.523408341855493],[80.50495637028423,16.527323635875593],[80.50762380743826,16.53252113144614],[80.51060034675181,16.538073522088673],[80.51395467759357,16.54427846173456],[80.51785852338554,16.551651120649602],[80.51857976175766,16.55254408244366],[80.5190720355672,16.55276159877811],[80.51957575760488,16.55285318460314],[80.52001079027377,16.55285318460314],[80.52049161585519,16.552715805865592],[80.52124719891171,16.552338014337337],[80.52413215240018,16.55088408936496],[80.5263531086572,16.549785059464583],[80.52774979248893,16.549052372864328],[80.52841378972042,16.54841127208911],[80.52848247908919,16.54751831029505],[80.5282077216141,16.546716934326025]]}" .
+
+adto:N6_13_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.5039031332964 16.421061182382736, 80.50388023684012 16.523408341855493, 80.50495637028423 16.527323635875593, 80.50762380743826 16.53252113144614, 80.51060034675181 16.538073522088673, 80.51395467759357 16.54427846173456, 80.51785852338554 16.551651120649602, 80.51857976175766 16.55254408244366, 80.5190720355672 16.55276159877811, 80.51957575760488 16.55285318460314, 80.52001079027377 16.55285318460314, 80.52049161585519 16.552715805865592, 80.52124719891171 16.552338014337337, 80.52413215240018 16.55088408936496, 80.5263531086572 16.549785059464583, 80.52774979248893 16.549052372864328, 80.52841378972042 16.54841127208911, 80.52848247908919 16.54751831029505, 80.5282077216141 16.546716934326025)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.5039031332964,16.421061182382736],[80.50388023684012,16.523408341855493],[80.50495637028423,16.527323635875593],[80.50762380743826,16.53252113144614],[80.51060034675181,16.538073522088673],[80.51395467759357,16.54427846173456],[80.51785852338554,16.551651120649602],[80.51857976175766,16.55254408244366],[80.5190720355672,16.55276159877811],[80.51957575760488,16.55285318460314],[80.52001079027377,16.55285318460314],[80.52049161585519,16.552715805865592],[80.52124719891171,16.552338014337337],[80.52413215240018,16.55088408936496],[80.5263531086572,16.549785059464583],[80.52774979248893,16.549052372864328],[80.52841378972042,16.54841127208911],[80.52848247908919,16.54751831029505],[80.5282077216141,16.546716934326025]]}" .
+
+adto:N7_12_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N7_12_01_geom ;
+    adto:hasName "N7_12_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N7_12_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49464151674005 16.48171389500988, 80.4946529649682 16.520752352929577)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49464151674005,16.48171389500988],[80.4946529649682,16.520752352929577]]}" .
+
+adto:N7_12_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N7_12_02_geom ;
+    adto:hasName "N7_12_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N7_12_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.4946529649682 16.520752352929577, 80.49466441319633 16.55979081084927)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.4946529649682,16.520752352929577],[80.49466441319633,16.55979081084927]]}" .
+
+adto:N7_12_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.49464151674005 16.48171389500988, 80.49466441319633 16.55979081084927)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.49464151674005,16.48171389500988],[80.49466441319633,16.55979081084927]]}" .
+
+adto:N8_11_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N8_11_01_geom ;
+    adto:hasName "N8_11_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N8_11_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48476741997885 16.482423685153865, 80.48474738557962 16.521267523195373)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48476741997885,16.482423685153865],[80.48474738557962,16.521267523195373]]}" .
+
+adto:N8_11_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N8_11_02_geom ;
+    adto:hasName "N8_11_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N8_11_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48474738557962 16.521267523195373, 80.48472735118038 16.56011136123688)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48474738557962,16.521267523195373],[80.48472735118038,16.56011136123688]]}" .
+
+adto:N8_11_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.48476741997885 16.482423685153865, 80.48472735118038 16.56011136123688)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.48476741997885,16.482423685153865],[80.48472735118038,16.56011136123688]]}" .
+
+adto:N8_1_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N8_1_01_geom ;
+    adto:hasName "N8_1_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N8_1_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42485025600914 16.48627887597632, 80.42482735955286 16.496588005406434)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42485025600914,16.48627887597632],[80.42482735955286,16.496588005406434]]}" .
+
+adto:N8_1_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N8_1_02_geom ;
+    adto:hasName "N8_1_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N8_1_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42482735955286 16.496588005406434, 80.4248044630966 16.506897134836546)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42482735955286,16.496588005406434],[80.4248044630966,16.506897134836546]]}" .
+
+adto:N8_1_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.42485025600914 16.48627887597632, 80.4248044630966 16.506897134836546)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.42485025600914,16.48627887597632],[80.4248044630966,16.506897134836546]]}" .
+
+adto:N9_10_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:N9_10_01_geom ;
+    adto:hasName "N9_10_01" ;
+    adto:hasStatus "Completed" .
+
+adto:N9_10_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.47515949452162 16.481241655599568, 80.47516378760717 16.534548898853473)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.47515949452162,16.481241655599568],[80.47516378760717,16.534548898853473]]}" .
+
+adto:N9_10_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:N9_10_02_geom ;
+    adto:hasName "N9_10_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:N9_10_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.47516378760717 16.534548898853473, 80.47516808069273 16.587856142107373)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.47516378760717,16.534548898853473],[80.47516808069273,16.587856142107373]]}" .
+
+adto:N9_10_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.47515949452162 16.481241655599568, 80.47516808069273 16.587856142107373)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.47515949452162,16.481241655599568],[80.47516808069273,16.587856142107373]]}" .
+
+adto:NH6_23_01 a adto:RoadSegment ;
+    adto:hasGeometry adto:NH6_23_01_geom ;
+    adto:hasName "NH6_23_01" ;
+    adto:hasStatus "Completed" .
+
+adto:NH6_23_01_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54635316319828 16.42075780433732, 80.54452144669764 16.423413793263236, 80.54363993313173 16.425732059459346, 80.54339952034103 16.430609004642275, 80.54335395084637 16.459224477305362)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54635316319828,16.42075780433732],[80.54452144669764,16.423413793263236],[80.54363993313173,16.425732059459346],[80.54339952034103,16.430609004642275],[80.54335395084637,16.459224477305362]]}" .
+
+adto:NH6_23_02 a adto:RoadSegment ;
+    adto:hasGeometry adto:NH6_23_02_geom ;
+    adto:hasName "NH6_23_02" ;
+    adto:hasStatus "Maintenance" .
+
+adto:NH6_23_02_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54335395084637 16.459224477305362, 80.54329151792301 16.498429380170144)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54335395084637,16.459224477305362],[80.54329151792301,16.498429380170144]]}" .
+
+adto:NH6_23_03 a adto:RoadSegment ;
+    adto:hasGeometry adto:NH6_23_03_geom ;
+    adto:hasName "NH6_23_03" ;
+    adto:hasStatus "InProgress" .
+
+adto:NH6_23_03_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54329151792301 16.498429380170144, 80.54327931394565 16.50609289681046, 80.54556895957143 16.511313288837258, 80.55143045237347 16.521754072890854, 80.55788725303817 16.53402657344509)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54329151792301,16.498429380170144],[80.54327931394565,16.50609289681046],[80.54556895957143,16.511313288837258],[80.55143045237347,16.521754072890854],[80.55788725303817,16.53402657344509]]}" .
+
+adto:NH6_23_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> LINESTRING(80.54635316319828 16.42075780433732, 80.54452144669764 16.423413793263236, 80.54363993313173 16.425732059459346, 80.54339952034103 16.430609004642275, 80.54327931394565 16.50609289681046, 80.54556895957143 16.511313288837258, 80.55143045237347 16.521754072890854, 80.55788725303817 16.53402657344509)"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"LineString\",\"coordinates\":[[80.54635316319828,16.42075780433732],[80.54452144669764,16.423413793263236],[80.54363993313173,16.425732059459346],[80.54339952034103,16.430609004642275],[80.54327931394565,16.50609289681046],[80.54556895957143,16.511313288837258],[80.55143045237347,16.521754072890854],[80.55788725303817,16.53402657344509]]}" .
+
+adto:PTZ1_29 a adto:Zone ;
+    rdfs:label "PTZ 1" ;
+    adto:hasGeometry adto:PTZ1_29_geom .
+
+adto:PTZ1_29_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.41901237517699 16.52304271406951, 80.41942451138964 16.5209820330063, 80.41924133973957 16.518005493692776, 80.42111884915272 16.514296267779, 80.42249263652819 16.511090763902896, 80.4251486254541 16.50916746157723, 80.42611027661694 16.507747881289244, 80.4298195025307 16.510541248952705, 80.4300942600058 16.515990605542083, 80.42647661991705 16.51635694884221, 80.42611027661694 16.519791417280892, 80.42469069632895 16.522538992031837, 80.42308794439089 16.52231002746926, 80.4228131869158 16.523958572319827, 80.42066092002756 16.524416501444986, 80.41901237517699 16.52304271406951)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.41901237517699,16.52304271406951],[80.41942451138964,16.5209820330063],[80.41924133973957,16.518005493692776],[80.42111884915272,16.514296267779],[80.42249263652819,16.511090763902896],[80.4251486254541,16.50916746157723],[80.42611027661694,16.507747881289244],[80.4298195025307,16.510541248952705],[80.4300942600058,16.515990605542083],[80.42647661991705,16.51635694884221],[80.42611027661694,16.519791417280892],[80.42469069632895,16.522538992031837],[80.42308794439089,16.52231002746926],[80.4228131869158,16.523958572319827],[80.42066092002756,16.524416501444986],[80.41901237517699,16.52304271406951]]]]}" .
+
+adto:PTZ2_30 a adto:Zone ;
+    rdfs:label "PTZ 2" ;
+    adto:hasGeometry adto:PTZ2_30_geom .
+
+adto:PTZ2_30_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.42510283254158 16.507335745076603, 80.42121043497775 16.51209820797824, 80.41686010828874 16.511273935552957, 80.41058647927409 16.509030082839686, 80.40733518248547 16.509075875752202, 80.41131916587435 16.507610502551696, 80.41397515480026 16.507518916726664, 80.42510283254158 16.507335745076603)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.42510283254158,16.507335745076603],[80.42121043497775,16.51209820797824],[80.41686010828874,16.511273935552957],[80.41058647927409,16.509030082839686],[80.40733518248547,16.509075875752202],[80.41131916587435,16.507610502551696],[80.41397515480026,16.507518916726664],[80.42510283254158,16.507335745076603]]]]}" .
+
+adto:RZ11_12 a adto:Zone ;
+    rdfs:label "RZ 11" ;
+    adto:hasGeometry adto:RZ11_12_geom .
+
+adto:RZ11_12_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4497508677033 16.506625954932623, 80.44977376415956 16.50257328217498, 80.45588711798042 16.502596178631237, 80.4559558073492 16.506625954932623, 80.4497508677033 16.506625954932623)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4497508677033,16.506625954932623],[80.44977376415956,16.50257328217498],[80.45588711798042,16.502596178631237],[80.4559558073492,16.506625954932623],[80.4497508677033,16.506625954932623]]]]}" .
+
+adto:RZ1_1 a adto:Zone ;
+    rdfs:label "RZ 1" ;
+    adto:hasGeometry adto:RZ1_1_geom .
+
+adto:RZ1_1_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43118756579223 16.53143998940212, 80.43084411894836 16.531371300033346, 80.42997405361055 16.5268835946068, 80.43611030388767 16.526700422956736, 80.43611030388767 16.526700422956736, 80.43617899325645 16.53118812838328, 80.43118756579223 16.53143998940212)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43118756579223,16.53143998940212],[80.43084411894836,16.531371300033346],[80.42997405361055,16.5268835946068],[80.43611030388767,16.526700422956736],[80.43611030388767,16.526700422956736],[80.43617899325645,16.53118812838328],[80.43118756579223,16.53143998940212]]]]}" .
+
+adto:RZ2_2 a adto:Zone ;
+    rdfs:label "RZ 2" ;
+    adto:hasGeometry adto:RZ2_2_geom .
+
+adto:RZ2_2_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43679719757544 16.529024413266914, 80.43672850820667 16.526723319412994, 80.44435302814054 16.526688974728607, 80.44435302814054 16.529047309723172, 80.43679719757544 16.529024413266914)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43679719757544,16.529024413266914],[80.43672850820667,16.526723319412994],[80.44435302814054,16.526688974728607],[80.44435302814054,16.529047309723172],[80.43679719757544,16.529024413266914]]]]}" .
+
+adto:RZ3_3 a adto:Zone ;
+    rdfs:label "RZ 3" ;
+    adto:hasGeometry adto:RZ3_3_geom .
+
+adto:RZ3_3_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43691167985673 16.53511487063151, 80.4368200940317 16.529505238848326, 80.43933870422006 16.529505238848326, 80.43947608295761 16.535160663544023, 80.43691167985673 16.53511487063151)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43691167985673,16.53511487063151],[80.4368200940317,16.529505238848326],[80.43933870422006,16.529505238848326],[80.43947608295761,16.535160663544023],[80.43691167985673,16.53511487063151]]]]}" .
+
+adto:RZ5_4 a adto:Zone ;
+    rdfs:label "RZ 5" ;
+    adto:hasGeometry adto:RZ5_4_geom .
+
+adto:RZ5_4_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.43988821917026 16.533786876168552, 80.43984242625774 16.529665514042133, 80.44011718373284 16.529367860110778, 80.44433013168428 16.52948234239207, 80.44430723522802 16.533763979712294, 80.43988821917026 16.533786876168552)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.43988821917026,16.533786876168552],[80.43984242625774,16.529665514042133],[80.44011718373284,16.529367860110778],[80.44433013168428,16.52948234239207],[80.44430723522802,16.533763979712294],[80.43988821917026,16.533786876168552]]]]}" .
+
+adto:RZ6_5 a adto:Zone ;
+    rdfs:label "RZ 6" ;
+    adto:hasGeometry adto:RZ6_5_geom .
+
+adto:RZ6_5_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.44513150765333 16.528841241616842, 80.44513150765333 16.52682635346615, 80.4558012562695 16.526734767641116, 80.45584704918201 16.528932827441874, 80.44513150765333 16.528841241616842)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.44513150765333,16.528841241616842],[80.44513150765333,16.52682635346615],[80.4558012562695,16.526734767641116],[80.45584704918201,16.528932827441874],[80.44513150765333,16.528841241616842]]]]}" .
+
+adto:RZ6_6 a adto:Zone ;
+    rdfs:label "RZ 6" ;
+    adto:hasGeometry adto:RZ6_6_geom .
+
+adto:RZ6_6_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.45085562171779 16.520919067751617, 80.45080982880528 16.51828597528196, 80.45131355084295 16.518240182369443, 80.45133644729921 16.51666032688765, 80.4556867739882 16.51663743043139, 80.45607601374459 16.517026670187775, 80.45609891020085 16.520827481926585, 80.45593577295 16.521059308546192, 80.45085562171779 16.520919067751617)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.45085562171779,16.520919067751617],[80.45080982880528,16.51828597528196],[80.45131355084295,16.518240182369443],[80.45133644729921,16.51666032688765],[80.4556867739882,16.51663743043139],[80.45607601374459,16.517026670187775],[80.45609891020085,16.520827481926585],[80.45593577295,16.521059308546192],[80.45085562171779,16.520919067751617]]]]}" .
+
+adto:RZ6_7 a adto:Zone ;
+    rdfs:label "RZ 6" ;
+    adto:hasGeometry adto:RZ6_7_geom .
+
+adto:RZ6_7_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4450341977142 16.51154869302807, 80.44494261188916 16.50747312381417, 80.44530895518929 16.507198366339072, 80.44927004212191 16.507198366339072, 80.4493845244032 16.507381537989136, 80.44936162794694 16.51131972846549, 80.44906397401559 16.511640278853104, 80.4450341977142 16.51154869302807)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4450341977142,16.51154869302807],[80.44494261188916,16.50747312381417],[80.44530895518929,16.507198366339072],[80.44927004212191,16.507198366339072],[80.4493845244032,16.507381537989136],[80.44936162794694,16.51131972846549],[80.44906397401559,16.511640278853104],[80.4450341977142,16.51154869302807]]]]}" .
+
+adto:RZ7_10 a adto:Zone ;
+    rdfs:label "RZ 7" ;
+    adto:hasGeometry adto:RZ7_10_geom .
+
+adto:RZ7_10_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.4566198045807 16.525240773870287, 80.45659690812444 16.521439962131478, 80.4640611528645 16.52139416921896, 80.46412984223328 16.52530946323906, 80.4566198045807 16.525240773870287)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.4566198045807,16.525240773870287],[80.45659690812444,16.521439962131478],[80.4640611528645,16.52139416921896],[80.46412984223328,16.52530946323906],[80.4566198045807,16.525240773870287]]]]}" .
+
+adto:RZ7_8 a adto:Zone ;
+    rdfs:label "RZ 7" ;
+    adto:hasGeometry adto:RZ7_8_geom .
+
+adto:RZ7_8_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.45082700114747 16.511594485940588, 80.45082700114747 16.510541248952727, 80.44972797124709 16.510564145408985, 80.4497737641596 16.507289952164104, 80.45577263569918 16.507221262795333, 80.45604739317427 16.507702088376746, 80.45604739317427 16.511296832009236, 80.45591001443672 16.51157158948433, 80.45082700114747 16.511594485940588)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.45082700114747,16.511594485940588],[80.45082700114747,16.510541248952727],[80.44972797124709,16.510564145408985],[80.4497737641596,16.507289952164104],[80.45577263569918,16.507221262795333],[80.45604739317427,16.507702088376746],[80.45604739317427,16.511296832009236],[80.45591001443672,16.51157158948433],[80.45082700114747,16.511594485940588]]]]}" .
+
+adto:RZ8_9 a adto:Zone ;
+    rdfs:label "RZ 8" ;
+    adto:hasGeometry adto:RZ8_9_geom .
+
+adto:RZ8_9_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.44972797124709 16.51418178549773, 80.44970507479083 16.512945376859804, 80.45078120823496 16.512922480403546, 80.4507583117787 16.51180055404691, 80.45588711798047 16.511869243415685, 80.45607028963053 16.512052415065746, 80.45609318608679 16.51580743389204, 80.45574973924292 16.51624246656094, 80.45426146958616 16.51610508782339, 80.45426146958616 16.514204681953988, 80.44972797124709 16.51418178549773)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.44972797124709,16.51418178549773],[80.44970507479083,16.512945376859804],[80.45078120823496,16.512922480403546],[80.4507583117787,16.51180055404691],[80.45588711798047,16.511869243415685],[80.45607028963053,16.512052415065746],[80.45609318608679,16.51580743389204],[80.45574973924292,16.51624246656094],[80.45426146958616,16.51610508782339],[80.45426146958616,16.514204681953988],[80.44972797124709,16.51418178549773]]]]}" .
+
+adto:RZ9_11 a adto:Zone ;
+    rdfs:label "RZ 9" ;
+    adto:hasGeometry adto:RZ9_11_geom .
+
+adto:RZ9_11_geom a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/OGC/1.3/CRS84> MULTIPOLYGON(((80.45656256344002 16.51578453743578, 80.45656256344002 16.512063863293875, 80.4568373209151 16.51176620936252, 80.45810807423742 16.511800554046907, 80.45811952246555 16.512945376859804, 80.4592872417347 16.512991169772317, 80.4592872417347 16.516024950226488, 80.4568373209151 16.516082191367133, 80.45656256344002 16.51578453743578)))"^^geo:wktLiteral ;
+    adto:asGeoJSON "{\"type\":\"MultiPolygon\",\"coordinates\":[[[[80.45656256344002,16.51578453743578],[80.45656256344002,16.512063863293875],[80.4568373209151,16.51176620936252],[80.45810807423742,16.511800554046907],[80.45811952246555,16.512945376859804],[80.4592872417347,16.512991169772317],[80.4592872417347,16.516024950226488],[80.4568373209151,16.516082191367133],[80.45656256344002,16.51578453743578]]]]}" .
+
+adto:WorkOrder a owl:Class ;
+    rdfs:label "Work Order" ;
+    rdfs:comment "An actionable work item assigned to an agent." ;
+    rdfs:subClassOf adto:Plan ;
+    ns1:altLabel "WO" .
+
+adto:isPartOf a owl:ObjectProperty ;
+    rdfs:label "is part of" ;
+    rdfs:comment "Part-whole inverse relation." ;
+    rdfs:domain adto:PhysicalAsset ;
+    rdfs:range adto:PhysicalAsset .
+
+<http://www.w3.org/ns/prov#Agent> a owl:Class .
+
+<http://www.w3.org/ns/sosa/Observation> a owl:Class .
+
+adto:Agent a owl:Class ;
+    rdfs:label "Agent" ;
+    rdfs:comment "A human or system agent." ;
+    rdfs:subClassOf adto:Entity,
+        <http://www.w3.org/ns/prov#Agent> .
+
+adto:OtherInfrastructure a owl:Class ;
+    rdfs:label "Other Infrastructure" ;
+    rdfs:comment "Other civic infrastructure." ;
+    rdfs:subClassOf adto:InfrastructureAsset .
+
+xsd:date a rdfs:Datatype .
+
+adto:Equipment a owl:Class ;
+    rdfs:label "Equipment" ;
+    rdfs:comment "Construction or maintenance equipment." ;
+    rdfs:subClassOf adto:MobileAsset .
+
+adto:GreenInfrastructure a owl:Class ;
+    rdfs:label "Green Infrastructure" ;
+    rdfs:comment "Parks and ecological assets." ;
+    rdfs:subClassOf adto:InfrastructureAsset .
+
+adto:MobileAsset a owl:Class ;
+    rdfs:label "Mobile Asset" ;
+    rdfs:comment "Movable asset owned/operated by the city." ;
+    rdfs:subClassOf adto:PhysicalAsset .
+
+adto:Plan a owl:Class ;
+    rdfs:label "Plan" ;
+    rdfs:comment "A planned activity with schedule/constraints." ;
+    rdfs:subClassOf adto:Entity .
+
+adto:PublicTransportNode a owl:Class ;
+    rdfs:label "Public Transport Node" ;
+    rdfs:comment "Stops/stations for public transport." ;
+    rdfs:subClassOf adto:TransportInfrastructure .
+
+adto:Entity a owl:Class ;
+    rdfs:label "Entity" ;
+    rdfs:comment "Any described thing." .
+
+adto:Vehicle a owl:Class ;
+    rdfs:label "Vehicle" ;
+    rdfs:comment "City-owned/operated vehicle." ;
+    rdfs:subClassOf adto:MobileAsset .
+
+adto:InfrastructureAsset a owl:Class ;
+    rdfs:label "Infrastructure Asset" ;
+    rdfs:comment "Fixed, immovable infrastructure." ;
+    rdfs:subClassOf adto:PhysicalAsset .
+
+adto:LandParcel a owl:Class ;
+    rdfs:label "Land Parcel" ;
+    rdfs:comment "Geo-referenced land unit." ;
+    rdfs:subClassOf adto:PhysicalAsset .
+
+adto:UtilityInfrastructure a owl:Class ;
+    rdfs:label "Utility Infrastructure" ;
+    rdfs:comment "Power, water, sewer, gas, telecom." ;
+    rdfs:subClassOf adto:InfrastructureAsset .
+
+adto:BuildingInfrastructure a owl:Class ;
+    rdfs:label "Building Infrastructure" ;
+    rdfs:comment "Buildings and building complexes." ;
+    rdfs:subClassOf adto:InfrastructureAsset .
+
+adto:TransportInfrastructure a owl:Class ;
+    rdfs:label "Transport Infrastructure" ;
+    rdfs:comment "Road, rail, bridges, public transport nodes." ;
+    rdfs:subClassOf adto:InfrastructureAsset .
+
+adto:PublicUtilitiesServicesZone a adto:Zone ;
+    rdfs:label "Public Utilities Services Zone" .
+
+adto:WaterMain a owl:Class ;
+    rdfs:label "Water Main" ;
+    rdfs:comment "Potable water main line." ;
+    rdfs:subClassOf adto:UtilityInfrastructure .
+
+adto:PhysicalAsset a owl:Class ;
+    rdfs:label "Physical Asset" ;
+    rdfs:comment "A tangible city asset with geometry." ;
+    rdfs:subClassOf geo:Feature,
+        adto:Entity .
+
+adto:RoadReserveZone a adto:Zone ;
+    rdfs:label "Road Reserve Zone" .
+
+adto:Zone a owl:Class .
+
+adto:RoadSegment a owl:Class ;
+    rdfs:label "Road Segment" ;
+    rdfs:comment "A contiguous segment of road belonging to a corridor." ;
+    rdfs:subClassOf adto:TransportInfrastructure ;
+    ns1:altLabel "Segment" .
+
+geo:Geometry a owl:Class .
+

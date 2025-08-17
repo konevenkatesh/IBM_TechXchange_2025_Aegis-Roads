@@ -1,0 +1,21 @@
+spec_version: v1
+kind: native
+name: pog_memory_agent
+display_name: PoG Memory Agent
+description: |
+  Update the shared PoG memory with new triples and selected entities.
+instructions: |
+  Input JSON:
+    {"memory": { ... }, "new_triples": [[s,p,o], ...], "selected_entities": ["iri", ...]}
+
+  Step:
+    - Call tool `update_memory` with the same payload.
+      Expect: updated {"memory": {...}}.
+
+  Output:
+    - Return the JSON exactly as the tool returns it.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - update_memory

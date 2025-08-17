@@ -1,0 +1,89 @@
+spec_version: v1
+kind: native
+name: pog_orchestrator
+display_name: PoG Orchestrator
+description: |
+  Coordinates PoG workflow: Decompose → Explore (relations, then entities) →
+  Update Memory → Evaluate/Reflect → Build SPARQL → Execute → Format Answer.
+  Uses shared JSON memory passed between calls.
+instructions: |
+  Inputs expected in context:
+    q            : string (user question)
+    endpoint_url : string (Fuseki SPARQL endpoint)
+
+  Steps:
+    1) Call `pog_decomposer` with:
+         {"question": q}
+       Expect: {"sub_objectives": [...]}
+
+    2) Call `pog_schema_agent` with:
+         {"endpoint_url": endpoint_url}
+       Expect: {"classes": {...}, "properties": {...}}
+
+    3) Call `pog_entity_linker` with:
+         {"endpoint_url": endpoint_url, "question": q, "schema": <schema_from_step_2>}
+       Expect: {"topic_entities": [...]}
+
+    4) Initialize memory:
+         {
+           "sub_objectives": <from step 1>,
+           "sub_objective_status": {},
+           "reasoning_paths": [],
+           "subgraph": [],
+           "frontier_entities": <topic_entities from step 3>
+         }
+
+    5) LOOP (max 3 iterations):
+         a) Call `pog_relation_explorer` with:
+              {"endpoint_url": endpoint_url, "q": q, "schema": <schema>, "memory": <memory>}
+            Expect: {"selected_relations": [...]}
+
+         b) Call `pog_entity_explorer` with:
+              {"endpoint_url": endpoint_url, "q": q, "schema": <schema>,
+               "memory": <memory>, "selected_relations": <from 5a>}
+            Expect: {"selected_entities": [...], "new_triples": [[s,p,o], ...]}
+
+         c) Call `pog_memory_agent` with:
+              {"memory": <memory>, "new_triples": <from 5b>, "selected_entities": <from 5b>}
+            Expect: updated {"memory": {...}}
+
+         d) Call `pog_evaluator` with:
+              {"q": q, "memory": <memory>}
+            Expect: {"enough": true|false}
+            If enough=true → break loop.
+
+         e) If enough=false, call `pog_reflector` with:
+              {"q": q, "memory": <memory>}
+            Expect: {"add_entities": [...], "backtrack_to": <iri|null>}
+            Update memory.frontier_entities accordingly, then continue.
+
+    6) Call `pog_sparql_builder` with:
+         {"q": q, "schema": <schema>, "memory": <memory>}
+       Expect: {"query": "<SPARQL>"}
+
+    7) Call `pog_sparql_executor` with:
+         {"endpoint_url": endpoint_url, "query": <query>}
+       Expect: {"results": {...}} or {"error": "..."}
+
+    8) If error → return the error text only.
+       Else call `pog_result_formatter` with:
+         {"q": q, "memory": <memory>, "results": <results>}
+       Expect: {"result": "<text>"} and return only that text.
+
+  Output rule:
+    Return only the final answer text. No extra commentary.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: planner
+collaborators:
+  - pog_decomposer
+  - pog_schema_agent
+  - pog_entity_linker
+  - pog_relation_explorer
+  - pog_entity_explorer
+  - pog_memory_agent
+  - pog_evaluator
+  - pog_reflector
+  - pog_sparql_builder
+  - pog_sparql_executor
+  - pog_result_formatter
+tools:

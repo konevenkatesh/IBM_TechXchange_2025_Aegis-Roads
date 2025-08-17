@@ -1,0 +1,15 @@
+{
+"type": "FeatureCollection",
+"name": "water_supply",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "fid": 1, "Name": "Main 1", "Ring_Dia": 1500.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.538394498105561, 16.435601147620641, 0.0 ], [ 80.538028154805446, 16.502275628243606, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 2, "Name": "Main 2", "Ring_Dia": 1500.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.518428788248684, 16.437066520821144, 0.0 ], [ 80.518680649267409, 16.502287076471731, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 3, "Name": "Main 3", "Ring_Dia": 1500.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.510778509801398, 16.437218209843845, 0.0 ], [ 80.510924474710038, 16.502255593844367, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 4, "Name": "Main 4", "Ring_Dia": 1500.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.538028154805446, 16.502275628243606, 0.0 ], [ 80.428251095277005, 16.502172594190444, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 5, "Name": "Main 5", "Ring_Dia": 2000.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.431685563715646, 16.512613378244041, 0.0 ], [ 80.540581109678143, 16.510598490093344, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 6, "Name": "Main 5", "Ring_Dia": 2000.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.437913399817774, 16.531296886550475, 0.0 ], [ 80.499733831714067, 16.531022129075382, 0.0 ], [ 80.540581109678143, 16.510598490093344, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 7, "Name": "Main 8", "Ring_Dia": 2000.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.47949336438208, 16.489350578686032, 0.0 ], [ 80.479069779941298, 16.550667288544648, 0.0 ] ] } },
+{ "type": "Feature", "properties": { "fid": 8, "Name": "Main 22", "Ring_Dia": 2000.0 }, "geometry": { "type": "LineString", "coordinates": [ [ 80.452326719032058, 16.489945886548732, 0.0 ], [ 80.452509890682123, 16.543065665067029, 0.0 ] ] } }
+]
+}

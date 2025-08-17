@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0" version="28.1.0">
+  <diagram name="Page-1" id="43GiWK8uyy8XyC4bXgkB">
+    <mxGraphModel dx="2276" dy="832" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="63JWyUssg4j_gDNDkxvc-1" value="Supporting Agents" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="360" y="60" width="420" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-2" value="Tools" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="230" y="290" width="560" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-3" value="AURA Assistant" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="60" width="120" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-4" value="User" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.user;" vertex="1" parent="1">
+          <mxGeometry x="10" y="130" width="47.5" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-6" value="FastAPI" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="520" width="560" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-7" value="Fuseki-Server" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="610" width="560" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-8" value="" style="image;aspect=fixed;perimeter=ellipsePerimeter;html=1;align=center;shadow=0;dashed=0;spacingTop=3;image=img/lib/active_directory/database.svg;" vertex="1" parent="1">
+          <mxGeometry x="280" y="621.9" width="130" height="96.2" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-9" value="INPUT Data" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-370" y="580" width="105" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-10" value="Algorithm" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-170" y="515" width="60" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="63JWyUssg4j_gDNDkxvc-11" value="ADTO-Ontology" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-41.25" y="550" width="210" height="230" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

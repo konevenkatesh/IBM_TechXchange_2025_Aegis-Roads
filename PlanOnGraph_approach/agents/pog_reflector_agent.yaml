@@ -1,0 +1,28 @@
+spec_version: v1
+kind: native
+name: pog_reflector
+display_name: PoG Reflector
+description: |
+  Suggest minimal self-corrections: add promising entities or backtrack to a prior entity.
+instructions: |
+  Input JSON:
+    {"q": "<str>", "memory": { ... }}
+
+  Steps:
+    1) Identify unmet items in memory.sub_objectives by inspecting memory.subgraph and
+       memory.sub_objective_status (if present).
+    2) If the last exploration added no useful triples (or frontier looks stuck),
+       choose one entity to revisit as backtrack_to (pick an entity already in memory.frontier_entities
+       or one that appears frequently in memory.subgraph).
+    3) Propose up to 5 add_entities (IRIs or short labels) that are most likely to satisfy the unmet items
+       (e.g., a time node, a status node, an assigned agent, or a related asset).
+    4) Keep it minimal.
+
+  Output JSON (exact keys only):
+    {"add_entities": ["iri-or-label", ...], "backtrack_to": "iri-or-null"}
+
+  Do not add explanations or extra fields.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:

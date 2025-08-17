@@ -1,0 +1,37 @@
+spec_version: v1
+kind: native
+name: pog_entity_explorer
+display_name: PoG Entity Explorer
+description: |
+  For each selected relation, fetch neighbor entities, rank by relevance, and choose a few to continue. Return new triples.
+instructions: |
+  Input JSON:
+    {"endpoint_url": "<str>", "q": "<str>", "schema": { ... }, "memory": { ... }, "selected_relations": ["iri", ...]}
+
+  Steps:
+    1) For each entity E in memory.frontier_entities and predicate P in selected_relations:
+         1a) Call tool `get_neighbors` with direction "out":
+             {"endpoint_url": endpoint_url, "entity_iri": E, "relation_iri": P, "direction": "out", "limit": 100}
+             → returns {"candidates":[...], "triples":[[E,P,N], ...]}
+         1b) Call tool `get_neighbors` with direction "in":
+             {"endpoint_url": endpoint_url, "entity_iri": E, "relation_iri": P, "direction": "in", "limit": 100}
+             → returns {"candidates":[...], "triples":[[N,P,E], ...]}
+       Merge all candidates and triples; deduplicate while keeping order.
+
+    2) Rank the merged candidates with tool `rank_candidates`:
+         {"question": q, "candidates": merged_candidates, "top_k": 5}
+       → returns {"topk": [...]}
+
+    3) Output exactly:
+         {
+           "selected_entities": <the top_k list from rank_candidates>,
+           "new_triples": <the deduped triples list corresponding to those entities>
+         }
+
+  Keep outputs minimal. No explanations.
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - get_neighbors
+  - rank_candidates

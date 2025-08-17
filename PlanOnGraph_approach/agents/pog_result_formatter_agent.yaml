@@ -1,0 +1,27 @@
+spec_version: v1
+kind: native
+name: pog_result_formatter
+display_name: PoG Result Formatter
+description: |
+  Convert raw SPARQL results into a short, clear answer.
+instructions: |
+  Input JSON:
+    {"q": "<str>", "memory": { ... }, "results": { ... }}
+
+  Rules:
+    - If results contains a boolean (ASK):
+        Output "Yes." for true, "No." for false.
+    - If results is SELECT with bindings:
+        * If exactly one row and one variable → output the value directly.
+        * If there is a variable that looks like a count (e.g., ?count) → output "There are X items."
+        * Otherwise, list up to 10 rows, one per line.
+          Prefer a human-friendly variable (e.g., ?label, ?name). If none, show the first column.
+    - If empty bindings → "No results found."
+    - Keep the answer short. No extra commentary.
+
+  Output JSON:
+    {"result": "<text>"}
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:

@@ -1,0 +1,646 @@
+@prefix : <http://www.projectsynapse.com/ontologies/adto#> .
+@prefix geo: <http://www.opengis.net/ont/geosparql#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix adto: <http://www.projectsynapse.com/ontologies/adto#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@base <http://www.projectsynapse.com/ontologies/adto#> .
+
+<http://www.projectsynapse.com/ontologies/adto#> rdf:type owl:Ontology ;
+                                                  rdfs:comment "ADTO-City: a city infrastructure & works ontology, LLM-friendly and aligned with GeoSPARQL, QUDT, PROV-O, SOSA/SSN, OWL-Time, SKOS, and BOT." .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#altLabel
+skos:altLabel rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#hasGeometry
+geo:hasGeometry rdf:type owl:ObjectProperty .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#assignedTo
+adto:assignedTo rdf:type owl:ObjectProperty ;
+                rdfs:domain adto:WorkOrder ;
+                rdfs:range adto:Agent ;
+                rdfs:label "assigned to" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#containsZone
+adto:containsZone rdf:type owl:ObjectProperty ,
+                           owl:TransitiveProperty ;
+                  rdfs:domain adto:Zone ;
+                  rdfs:range adto:Zone .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#dependsOn
+adto:dependsOn rdf:type owl:ObjectProperty ;
+               rdfs:domain adto:Plan ;
+               rdfs:range adto:Plan ;
+               rdfs:label "depends on" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasGeometry
+adto:hasGeometry rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf geo:hasGeometry ;
+                 rdfs:domain adto:PhysicalAsset ;
+                 rdfs:range geo:Geometry ;
+                 rdfs:comment "Attach WKT/GeoJSON geometry." ;
+                 rdfs:label "has geometry" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasPart
+adto:hasPart rdf:type owl:ObjectProperty ;
+             owl:inverseOf adto:isPartOf ;
+             rdfs:domain adto:PhysicalAsset ;
+             rdfs:range adto:PhysicalAsset ;
+             rdfs:comment "Whole-part relation between assets." ;
+             rdfs:label "has part" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#isLocatedIn
+adto:isLocatedIn rdf:type owl:ObjectProperty ;
+                 rdfs:domain adto:PhysicalAsset ;
+                 rdfs:range adto:Zone ;
+                 rdfs:label "is located in" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#isPartOf
+adto:isPartOf rdf:type owl:ObjectProperty ;
+              rdfs:domain adto:PhysicalAsset ;
+              rdfs:range adto:PhysicalAsset ;
+              rdfs:comment "Part-whole inverse relation." ;
+              rdfs:label "is part of" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.projectsynapse.com/ontologies/adto#hasDiameter
+adto:hasDiameter rdf:type owl:DatatypeProperty ;
+                 rdfs:label "Diameter" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasEndDate
+adto:hasEndDate rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                rdfs:range xsd:date ;
+                rdfs:label "end date" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasLength
+adto:hasLength rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:label "length" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasName
+adto:hasName rdf:type owl:DatatypeProperty ,
+                      owl:FunctionalProperty ;
+             rdfs:range xsd:string ;
+             rdfs:label "name" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasRoadClass
+adto:hasRoadClass rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:label "road class" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasStartDate
+adto:hasStartDate rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  rdfs:range xsd:date ;
+                  rdfs:label "start date" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasStatus
+adto:hasStatus rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               rdfs:range xsd:string ;
+               rdfs:comment "Free text or SKOS label." ;
+               rdfs:label "status" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#hasWidth
+adto:hasWidth rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              rdfs:label "width" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.opengis.net/ont/geosparql#Feature
+geo:Feature rdf:type owl:Class .
+
+
+###  http://www.opengis.net/ont/geosparql#Geometry
+geo:Geometry rdf:type owl:Class .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#AI_Agent
+adto:AI_Agent rdf:type owl:Class ;
+              rdfs:subClassOf adto:Agent ;
+              rdfs:comment "Automated (LLM) agent." ;
+              rdfs:label "AI Agent" ;
+              skos:altLabel "LLM Agent" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Agent
+adto:Agent rdf:type owl:Class ;
+           rdfs:subClassOf adto:Entity ,
+                           prov:Agent ;
+           rdfs:comment "A human or system agent." ;
+           rdfs:label "Agent" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#AgriculturalLand
+adto:AgriculturalLand rdf:type owl:Class ;
+                      rdfs:subClassOf adto:LandParcel ;
+                      rdfs:comment "Agricultural land." ;
+                      rdfs:label "Agricultural Land" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#AirportInfrastructure
+adto:AirportInfrastructure rdf:type owl:Class ;
+                           rdfs:subClassOf adto:TransportInfrastructure ;
+                           rdfs:comment "Airport runways, terminals, aprons." ;
+                           rdfs:label "Airport Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Bridge
+adto:Bridge rdf:type owl:Class ;
+            rdfs:subClassOf adto:TransportInfrastructure ;
+            rdfs:comment "Bridge structure across waterway/road/rail." ;
+            rdfs:label "Bridge" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#BuildingInfrastructure
+adto:BuildingInfrastructure rdf:type owl:Class ;
+                            rdfs:subClassOf adto:InfrastructureAsset ;
+                            rdfs:comment "Buildings and building complexes." ;
+                            rdfs:label "Building Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Bus
+adto:Bus rdf:type owl:Class ;
+         rdfs:subClassOf adto:Vehicle ;
+         rdfs:comment "Public transport bus." ;
+         rdfs:label "Bus" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#BusStop
+adto:BusStop rdf:type owl:Class ;
+             rdfs:subClassOf adto:PublicTransportNode ;
+             rdfs:comment "Bus stop/stand location." ;
+             rdfs:label "Bus Stop" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Cemetery
+adto:Cemetery rdf:type owl:Class ;
+              rdfs:subClassOf adto:OtherInfrastructure ;
+              rdfs:comment "Cemetery / burial ground." ;
+              rdfs:label "Cemetery" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#CommercialBuilding
+adto:CommercialBuilding rdf:type owl:Class ;
+                        rdfs:subClassOf adto:BuildingInfrastructure ;
+                        rdfs:comment "Commercial or mixed-use building." ;
+                        rdfs:label "Commercial Building" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#CommercialPlot
+adto:CommercialPlot rdf:type owl:Class ;
+                    rdfs:subClassOf adto:LandParcel ;
+                    rdfs:comment "Commercial land parcel." ;
+                    rdfs:label "Commercial Plot" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Crane
+adto:Crane rdf:type owl:Class ;
+           rdfs:subClassOf adto:Equipment ;
+           rdfs:comment "Construction crane." ;
+           rdfs:label "Crane" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#CulturalFacility
+adto:CulturalFacility rdf:type owl:Class ;
+                      rdfs:subClassOf adto:BuildingInfrastructure ;
+                      rdfs:comment "Museum, theatre, auditorium, etc." ;
+                      rdfs:label "Cultural Facility" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Drone
+adto:Drone rdf:type owl:Class ;
+           rdfs:subClassOf adto:MobileAsset ;
+           rdfs:comment "Unmanned aerial vehicle for survey/inspection." ;
+           rdfs:label "Drone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#EmergencyVehicle
+adto:EmergencyVehicle rdf:type owl:Class ;
+                      rdfs:subClassOf adto:Vehicle ;
+                      rdfs:comment "Ambulance, fire truck, police vehicle." ;
+                      rdfs:label "Emergency Vehicle" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Entity
+adto:Entity rdf:type owl:Class ;
+            rdfs:comment "Any described thing." ;
+            rdfs:label "Entity" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Equipment
+adto:Equipment rdf:type owl:Class ;
+               rdfs:subClassOf adto:MobileAsset ;
+               rdfs:comment "Construction or maintenance equipment." ;
+               rdfs:label "Equipment" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Excavator
+adto:Excavator rdf:type owl:Class ;
+               rdfs:subClassOf adto:Equipment ;
+               rdfs:comment "Excavator machine." ;
+               rdfs:label "Excavator" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GasPipeline
+adto:GasPipeline rdf:type owl:Class ;
+                 rdfs:subClassOf adto:UtilityInfrastructure ;
+                 rdfs:comment "Natural gas pipeline." ;
+                 rdfs:label "Gas Pipeline" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GovernmentBuilding
+adto:GovernmentBuilding rdf:type owl:Class ;
+                        rdfs:subClassOf adto:BuildingInfrastructure ;
+                        rdfs:comment "Administrative/government facility." ;
+                        rdfs:label "Government Building" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GreenBelt
+adto:GreenBelt rdf:type owl:Class ;
+               rdfs:subClassOf adto:GreenInfrastructure ;
+               rdfs:comment "Green belt or buffer." ;
+               rdfs:label "Green Belt" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GreenInfrastructure
+adto:GreenInfrastructure rdf:type owl:Class ;
+                         rdfs:subClassOf adto:InfrastructureAsset ;
+                         rdfs:comment "Parks and ecological assets." ;
+                         rdfs:label "Green Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Hospital
+adto:Hospital rdf:type owl:Class ;
+              rdfs:subClassOf adto:BuildingInfrastructure ;
+              rdfs:comment "Medical facility." ;
+              rdfs:label "Hospital" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#IndustrialPlot
+adto:IndustrialPlot rdf:type owl:Class ;
+                    rdfs:subClassOf adto:LandParcel ;
+                    rdfs:comment "Industrial land parcel." ;
+                    rdfs:label "Industrial Plot" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#InfrastructureAsset
+adto:InfrastructureAsset rdf:type owl:Class ;
+                         rdfs:subClassOf adto:PhysicalAsset ;
+                         rdfs:comment "Fixed, immovable infrastructure." ;
+                         rdfs:label "Infrastructure Asset" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#InstitutionalPlot
+adto:InstitutionalPlot rdf:type owl:Class ;
+                       rdfs:subClassOf adto:LandParcel ;
+                       rdfs:comment "Institutional land parcel." ;
+                       rdfs:label "Institutional Plot" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#LandParcel
+adto:LandParcel rdf:type owl:Class ;
+                rdfs:subClassOf adto:PhysicalAsset ;
+                rdfs:comment "Geo-referenced land unit." ;
+                rdfs:label "Land Parcel" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#MaintenanceVehicle
+adto:MaintenanceVehicle rdf:type owl:Class ;
+                        rdfs:subClassOf adto:Vehicle ;
+                        rdfs:comment "Road/utility service vehicle." ;
+                        rdfs:label "Maintenance Vehicle" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#MetroStation
+adto:MetroStation rdf:type owl:Class ;
+                  rdfs:subClassOf adto:PublicTransportNode ;
+                  rdfs:comment "Mass rapid transit station." ;
+                  rdfs:label "Metro Station" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#MobileAsset
+adto:MobileAsset rdf:type owl:Class ;
+                 rdfs:subClassOf adto:PhysicalAsset ;
+                 rdfs:comment "Movable asset owned/operated by the city." ;
+                 rdfs:label "Mobile Asset" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#OtherInfrastructure
+adto:OtherInfrastructure rdf:type owl:Class ;
+                         rdfs:subClassOf adto:InfrastructureAsset ;
+                         rdfs:comment "Other civic infrastructure." ;
+                         rdfs:label "Other Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Park
+adto:Park rdf:type owl:Class ;
+          rdfs:subClassOf adto:GreenInfrastructure ;
+          rdfs:comment "Urban park or garden." ;
+          rdfs:label "Park" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#PhysicalAsset
+adto:PhysicalAsset rdf:type owl:Class ;
+                   rdfs:subClassOf geo:Feature ,
+                                   adto:Entity ;
+                   rdfs:comment "A tangible city asset with geometry." ;
+                   rdfs:label "Physical Asset" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Plan
+adto:Plan rdf:type owl:Class ;
+          rdfs:subClassOf adto:Entity ;
+          rdfs:comment "A planned activity with schedule/constraints." ;
+          rdfs:label "Plan" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Playground
+adto:Playground rdf:type owl:Class ;
+                rdfs:subClassOf adto:GreenInfrastructure ;
+                rdfs:comment "Children's play area." ;
+                rdfs:label "Playground" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#PowerSubstation
+adto:PowerSubstation rdf:type owl:Class ;
+                     rdfs:subClassOf adto:UtilityInfrastructure ;
+                     rdfs:comment "Electrical substation." ;
+                     rdfs:label "Power Substation" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#PublicTransportNode
+adto:PublicTransportNode rdf:type owl:Class ;
+                         rdfs:subClassOf adto:TransportInfrastructure ;
+                         rdfs:comment "Stops/stations for public transport." ;
+                         rdfs:label "Public Transport Node" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#RailwayLine
+adto:RailwayLine rdf:type owl:Class ;
+                 rdfs:subClassOf adto:TransportInfrastructure ;
+                 rdfs:comment "Rail corridor asset." ;
+                 rdfs:label "Railway Line" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#ResidentialBlock
+adto:ResidentialBlock rdf:type owl:Class ;
+                      rdfs:subClassOf adto:BuildingInfrastructure ;
+                      rdfs:comment "Residential apartment or housing block." ;
+                      rdfs:label "Residential Block" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#ResidentialPlot
+adto:ResidentialPlot rdf:type owl:Class ;
+                     rdfs:subClassOf adto:LandParcel ;
+                     rdfs:comment "Residential land parcel." ;
+                     rdfs:label "Residential Plot" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#RoadCorridor
+adto:RoadCorridor rdf:type owl:Class ;
+                  rdfs:subClassOf adto:TransportInfrastructure ;
+                  rdfs:comment "A named roadway corridor made of road segments." ;
+                  rdfs:label "Road Corridor" ;
+                  skos:altLabel "Corridor" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#RoadRoller
+adto:RoadRoller rdf:type owl:Class ;
+                rdfs:subClassOf adto:Equipment ;
+                rdfs:comment "Road roller/compactor." ;
+                rdfs:label "Road Roller" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#RoadSegment
+adto:RoadSegment rdf:type owl:Class ;
+                 rdfs:subClassOf adto:TransportInfrastructure ;
+                 rdfs:comment "A contiguous segment of road belonging to a corridor." ;
+                 rdfs:label "Road Segment" ;
+                 skos:altLabel "Segment" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#School
+adto:School rdf:type owl:Class ;
+            rdfs:subClassOf adto:BuildingInfrastructure ;
+            rdfs:comment "Educational facility." ;
+            rdfs:label "School" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#SensorReading
+adto:SensorReading rdf:type owl:Class ;
+                   rdfs:subClassOf adto:Entity ,
+                                   sosa:Observation ;
+                   rdfs:comment "A sensor observation (SOSA core)." ;
+                   rdfs:label "Sensor Reading" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#SewerLine
+adto:SewerLine rdf:type owl:Class ;
+               rdfs:subClassOf adto:UtilityInfrastructure ;
+               rdfs:comment "Sewer or drainage line." ;
+               rdfs:label "Sewer Line" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Stadium
+adto:Stadium rdf:type owl:Class ;
+             rdfs:subClassOf adto:BuildingInfrastructure ;
+             rdfs:comment "Sports arena or stadium." ;
+             rdfs:label "Stadium" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#TelecomTower
+adto:TelecomTower rdf:type owl:Class ;
+                  rdfs:subClassOf adto:UtilityInfrastructure ;
+                  rdfs:comment "Telecommunications tower." ;
+                  rdfs:label "Telecom Tower" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#TramStop
+adto:TramStop rdf:type owl:Class ;
+              rdfs:subClassOf adto:PublicTransportNode ;
+              rdfs:comment "Tram/light rail stop." ;
+              rdfs:label "Tram Stop" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#TransportInfrastructure
+adto:TransportInfrastructure rdf:type owl:Class ;
+                             rdfs:subClassOf adto:InfrastructureAsset ;
+                             rdfs:comment "Road, rail, bridges, public transport nodes." ;
+                             rdfs:label "Transport Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Truck
+adto:Truck rdf:type owl:Class ;
+           rdfs:subClassOf adto:Vehicle ;
+           rdfs:comment "General-purpose truck." ;
+           rdfs:label "Truck" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Tunnel
+adto:Tunnel rdf:type owl:Class ;
+            rdfs:subClassOf adto:TransportInfrastructure ;
+            rdfs:comment "Underground or covered passage." ;
+            rdfs:label "Tunnel" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#UtilityInfrastructure
+adto:UtilityInfrastructure rdf:type owl:Class ;
+                           rdfs:subClassOf adto:InfrastructureAsset ;
+                           rdfs:comment "Power, water, sewer, gas, telecom." ;
+                           rdfs:label "Utility Infrastructure" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Vehicle
+adto:Vehicle rdf:type owl:Class ;
+             rdfs:subClassOf adto:MobileAsset ;
+             rdfs:comment "City-owned/operated vehicle." ;
+             rdfs:label "Vehicle" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#WasteManagementFacility
+adto:WasteManagementFacility rdf:type owl:Class ;
+                             rdfs:subClassOf adto:OtherInfrastructure ;
+                             rdfs:comment "Municipal waste management site." ;
+                             rdfs:label "Waste Management Facility" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#WaterMain
+adto:WaterMain rdf:type owl:Class ;
+               rdfs:subClassOf adto:UtilityInfrastructure ;
+               rdfs:comment "Potable water main line." ;
+               rdfs:label "Water Main" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#WorkOrder
+adto:WorkOrder rdf:type owl:Class ;
+               rdfs:subClassOf adto:Plan ;
+               rdfs:comment "An actionable work item assigned to an agent." ;
+               rdfs:label "Work Order" ;
+               skos:altLabel "WO" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#Zone
+adto:Zone rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/prov#Agent
+prov:Agent rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/sosa/Observation
+sosa:Observation rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.projectsynapse.com/ontologies/adto#AgriculturalZone
+adto:AgriculturalZone rdf:type owl:NamedIndividual ,
+                               adto:Zone ;
+                      rdfs:label "Agricultural Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#CommercialZone
+adto:CommercialZone rdf:type owl:NamedIndividual ,
+                             adto:Zone ;
+                    rdfs:label "Commercial Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#ConservationZone
+adto:ConservationZone rdf:type owl:NamedIndividual ,
+                               adto:Zone ;
+                      rdfs:label "Conservation Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#EducationalZone
+adto:EducationalZone rdf:type owl:NamedIndividual ,
+                              adto:Zone ;
+                     rdfs:label "Educational Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GovernmentZone
+adto:GovernmentZone rdf:type owl:NamedIndividual ,
+                             adto:Zone ;
+                    rdfs:label "Government Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#GreenZone
+adto:GreenZone rdf:type owl:NamedIndividual ,
+                        adto:Zone ;
+               rdfs:label "Green Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#IndustrialZone
+adto:IndustrialZone rdf:type owl:NamedIndividual ,
+                             adto:Zone ;
+                    rdfs:label "Industrial Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#RecreationZone
+adto:RecreationZone rdf:type owl:NamedIndividual ,
+                             adto:Zone ;
+                    rdfs:label "Recreation Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#ResidentialZone
+adto:ResidentialZone rdf:type owl:NamedIndividual ,
+                              adto:Zone ;
+                     rdfs:label "Residential Zone" .
+
+
+###  http://www.projectsynapse.com/ontologies/adto#SpecialPurposeZone
+adto:SpecialPurposeZone rdf:type owl:NamedIndividual ,
+                                 adto:Zone ;
+                        rdfs:label "Special Purpose Zone" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi

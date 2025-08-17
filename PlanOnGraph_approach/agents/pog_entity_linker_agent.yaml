@@ -1,0 +1,26 @@
+spec_version: v1
+kind: native
+name: pog_entity_linker
+display_name: PoG Entity Linker
+description: |
+  Find topic entities in the KG that match mentions in the question (by rdfs:label and adto:hasName).
+instructions: |
+  Input JSON:
+    {"endpoint_url": "<str>", "question": "<str>", "schema": { ... }}
+
+  Steps:
+    1) From `schema`, collect up to 10 informative labels of classes/properties
+       (e.g., rdfs:label or local names). Use these as `hints`.
+    2) Call tool `label_search` once with:
+         {"endpoint_url": endpoint_url, "question": question, "hints": hints}
+       → Expect: {"candidates": [{"iri":"...","label":"..."}, ...]} or {"error":"..."}.
+    3) If error: return {"topic_entities": []}.
+       Else return the top IRIs as:
+         {"topic_entities": ["iri1","iri2", ...]}   (limit 10, no duplicates)
+
+  Output JSON must contain exactly one key: "topic_entities".
+llm: watsonx/meta-llama/llama-3-2-90b-vision-instruct
+style: default
+collaborators:
+tools:
+  - label_search
